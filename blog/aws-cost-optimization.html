@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AWS Outage to 99.97% Uptime: Cut Costs 68% in 6 Weeks</title>
+    <meta name="description" content="Lost thousands in AWS outage. Built 99.97% uptime + $2/month DR in 6 weeks. Cut costs 68%. Real data, repeatable process. Full breakdown with numbers.">
+    <meta name="keywords" content="AWS cost optimization, disaster recovery, multi-region architecture, CloudFront, S3, cloud cost reduction">
+    
+    <!-- Open Graph / LinkedIn -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="AWS Outage to 99.97% Uptime: Cut Costs 68% in 6 Weeks">
+    <meta property="og:description" content="Lost thousands in AWS outage. Built 99.97% uptime + $2/month DR in 6 weeks. Cut costs 68%. Real data, repeatable process.">
+    <meta property="og:url" content="https://goelrah.github.io/blog/aws-cost-optimization.html">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AWS Outage to 99.97% Uptime: Cut Costs 68% in 6 Weeks">
+    <meta name="twitter:description" content="Lost thousands in AWS outage. Built 99.97% uptime + $2/month DR in 6 weeks. Cut costs 68%.">
+    
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="canonical" href="https://goelrah.github.io/blog/aws-cost-optimization.html">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="logo">
+                <span class="logo-icon">☁️</span>
+                <span class="logo-text">Rahul Goel</span>
+            </a>
+            <div class="nav-links">
+                <a href="/">Blog</a>
+                <a href="/about.html">About</a>
+                <a href="https://github.com/Goelrah" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://www.linkedin.com/in/goelrah" target="_blank" rel="noopener">LinkedIn</a>
+            </div>
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Article Header -->
+    <header class="article-header">
+        <div class="article-header-content">
+            <h1>The $2 Disaster Recovery Solution: My Journey Building Cost-Efficient Global CDN</h1>
+            <p class="post-meta">
+                <span class="date">📅 March 13, 2026</span>
+                <span class="read-time">⏱️ 15 min read</span>
+            </p>
+            <div class="post-tags">
+                <span class="tag">AWS</span>
+                <span class="tag">Cost Optimization</span>
+                <span class="tag">Disaster Recovery</span>
+                <span class="tag">CloudFront</span>
+                <span class="tag">S3</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Article Content -->
+    <main class="article-content">
+        <a href="/" class="back-link">← Back to Blog</a>
+
+        <div class="highlight-box">
+            <strong>TL;DR:</strong> After a multi-hour AWS outage cost thousands in lost revenue, I spent 6 weeks analyzing data and rebuilt our infrastructure. Result: 68% cost reduction ($867/month saved), $2/month disaster recovery, and 99.97% uptime. Every number is real and repeatable.
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-box">
+                <span class="stat-value">68%</span>
+                <span>Cost Reduction</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-value">$2/mo</span>
+                <span>Disaster Recovery</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-value">99.97%</span>
+                <span>Uptime</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-value">28 sec</span>
+                <span>Failover Time</span>
+            </div>
+        </div>
+
+        <h2>A Quick Note Before We Start</h2>
+        <p>
+            I've been thinking about sharing this for a while. Over the past few months, I worked on a particularly interesting multi-region CDN architecture challenge, and the lessons learned were too valuable not to document. Everything I'm sharing here is based on general architectural principles and publicly available AWS services—no proprietary information, just pure engineering lessons.
+        </p>
+        <p>
+            The numbers might seem almost unbelievable (68% cost reduction, $2/month disaster recovery, 92% cache efficiency), but they're real. More importantly, they're repeatable if you know what to look for in your architecture.
+        </p>
+
+        <h2>How It Started: A Typical Scaling Problem</h2>
+        <p>
+            Like many growing platforms, this one started simple. A React application serving users across multiple continents, initially built in a single AWS region to keep things straightforward during the MVP phase. You know the drill—get something working, validate the market, then worry about scale and resilience.
+        </p>
+        <p>
+            The architecture was textbook startup: S3 bucket hosting static assets, CloudFront eventually added for performance, and everything living happily in one region. It worked. Users were growing. The engineering team was focused on features, not infrastructure complexity.
+        </p>
+        <p>
+            Then came the wake-up call. During peak usage hours, the primary region experienced a multi-hour outage. Not a code bug or a deployment issue—an actual AWS regional service disruption. The kind of thing you read about in post-mortems but never think will happen to you.
+        </p>
+        <p>
+            The impact was immediate. Website completely inaccessible. Support channels flooded. Users frustrated. And the engineering team staring at AWS status pages, completely helpless because there was no backup plan, no failover, no disaster recovery strategy whatsoever.
+        </p>
+        <p>
+            When the dust settled and we calculated the financial impact, it was sobering. Not just the immediate lost revenue, but the trust erosion, the churned users, the enterprise deals put on hold because of "reliability concerns." The CFO asked a simple question: "How do we make sure this never happens again, and how much will it cost?"
+        </p>
+        <p>
+            That question kicked off one of the most interesting architecture projects I've worked on.
+        </p>
+
+        <h2>The Data-Driven Approach: Measure Everything First</h2>
+        <p>
+            Here's where most architecture redesigns go wrong—everyone jumps straight to solutions. "Let's deploy to five regions!" "We need Kubernetes!" "Time to go multi-cloud!" These might be valid approaches, but without understanding your actual usage patterns, you're just guessing expensively.
+        </p>
+        <p>
+            I spent the first two weeks just collecting data. Real data. Not assumptions, not theoretical load, but actual observed behavior over 90 days. The CloudWatch metrics, S3 access logs, CloudFront analytics—all painting a picture of how the system actually worked in production.
+        </p>
+
+        <div class="info-box">
+            <strong>Key Finding:</strong> Out of about 4,750 files in our S3 buckets, roughly 3% of them accounted for 78% of all requests. The classic Pareto distribution, but seeing it in your own data hits different.
+        </div>
+
+        <p>
+            The first revelation came from analyzing access patterns. That tiny fraction—mostly core JavaScript bundles and CSS files—was what really mattered for performance.
+        </p>
+        <p>
+            The flip side was equally eye-opening. Almost 44% of our files were accessed less than once per day. That's nearly half our storage sitting there, costing us S3 Standard pricing, barely being touched. We were essentially paying premium prices for a massive digital attic.
+        </p>
+        <p>
+            The user behavior analysis revealed even more interesting patterns. Monthly Active Users (MAU) were at 48,000, with Daily Active Users (DAU) at 35,000. That 72.9% DAU/MAU ratio caught my attention—in SaaS, anything above 40% is considered excellent. These weren't casual browsers; these were engaged users with predictable patterns.
+        </p>
+        <p>
+            The regional distribution was the most important finding:
+        </p>
+        <ul>
+            <li><strong>India:</strong> 56% of users</li>
+            <li><strong>North America:</strong> 24%</li>
+            <li><strong>Japan:</strong> 10%</li>
+            <li><strong>Australia:</strong> 6%</li>
+            <li><strong>China:</strong> 4%</li>
+        </ul>
+        <p>
+            This wasn't just interesting data—it became the foundation of our entire cost optimization strategy.
+        </p>
+
+        <h2>The Storage Breakthrough: Intelligent-Tiering</h2>
+        <p>
+            Armed with access pattern data, the first optimization was obvious but powerful: S3 Intelligent-Tiering. I'll be honest, I'd read about it in AWS docs but never really understood its value until I saw our own data.
+        </p>
+        <p>
+            Here's how it works in practice. AWS monitors access patterns for each object and automatically moves files between storage tiers:
+        </p>
+        <ul>
+            <li>Frequently accessed files stay in the standard tier (same price as S3 Standard)</li>
+            <li>Files untouched for 30 days automatically move to an infrequent access tier (45% cheaper)</li>
+            <li>After 90 days of no access, they move to archive instant access (83% cheaper)</li>
+        </ul>
+        <p>
+            The beautiful part? No retrieval fees, no minimum storage duration, no manual lifecycle policies to maintain.
+        </p>
+        <p>
+            Looking at our 45GB of static assets, the math was straightforward:
+        </p>
+        <ul>
+            <li><strong>Before:</strong> Everything in S3 Standard at $1.04/month</li>
+            <li><strong>After:</strong> Only 3.2GB needed frequent access tier, 26.3GB could live in infrequent, and 15.5GB belonged in archive instant access</li>
+            <li><strong>Total cost:</strong> $0.48/month — a 54% reduction from a single command</li>
+        </ul>
+
+        <h2>Cache Optimization: The Hidden Money Printer</h2>
+        <p>
+            The second major optimization was cache hit rate improvement, and this one had an almost magical return on investment.
+        </p>
+        <p>
+            When we started measuring, the overall cache hit rate was hovering around 80-85%. Sounds pretty good, right? But let's talk about what that actually means in dollars. With 8.2TB of monthly bandwidth and an 85% hit rate, we were fetching 1.23TB from origin every month. At AWS S3 data transfer rates, that's about $140/month just in data transfer costs.
+        </p>
+        <p>
+            The problem was treating all content the same way. Default CloudFront caching behavior: 24 hours for everything. But that's completely wrong if you think about it:
+        </p>
+        <ul>
+            <li><strong>JavaScript bundles with content hashing:</strong> Immutable. Cache them for a year.</li>
+            <li><strong>HTML files:</strong> One hour maximum for quick updates.</li>
+            <li><strong>PDF course materials:</strong> One week is fine.</li>
+        </ul>
+        <p>
+            We reconfigured CloudFront cache behaviors based on content mutability patterns. The results were dramatic:
+        </p>
+        <ul>
+            <li>Cache hit rate jumped to <strong>92%</strong></li>
+            <li>Origin fetches dropped to 656GB monthly</li>
+            <li>Data transfer costs: <strong>$75 instead of $140</strong></li>
+        </ul>
+
+        <div class="highlight-box">
+            <strong>Key Insight:</strong> Every percentage point improvement in cache hit rate is worth about $67 per month in our setup.
+        </div>
+
+        <h2>The Multi-Region Strategy: Selective Replication</h2>
+        <p>
+            Now we get to the disaster recovery piece, and this is where conventional wisdom would have led us astray. The standard approach: full replication to multiple regions for complete redundancy. Sounds bulletproof. Also sounds expensive.
+        </p>
+        <p>
+            But remember that regional distribution data? 56% of users in India, 24% in North America. Those two regions alone represent 80% of our user base.
+        </p>
+        <p>
+            For India and North America, we configured full bidirectional replication. All content, both directions, with Replication Time Control enabled (guarantees 15-minute maximum replication lag). This gives us true disaster recovery capability for 80% of users. Cost: <strong>$0.06/month</strong> for the delta replication.
+        </p>
+        <p>
+            For Japan and Australia with smaller user bases, we took a different approach. Only replicate the "hot tier"—those frequently accessed files representing 20% of storage but 80% of requests. Cost: <strong>$0.01/month each</strong>.
+        </p>
+        <p>
+            Total Cross-Region Replication cost: <strong>$0.08/month</strong>. Compare that to full replication everywhere, which would have been $0.45/month. Same disaster recovery capability for primary user bases, 82% lower cost.
+        </p>
+
+        <h2>The Automatic Failover Architecture</h2>
+        <p>
+            AWS CloudFront has a feature called Origin Groups that does automatic failover with zero custom code. You define a primary origin and one or more backup origins, specify which HTTP error codes trigger failover (we used 404, 500, 502, 503, 504), and CloudFront handles the rest.
+        </p>
+        <p>
+            We configured our Origin Groups with Mumbai as primary, Virginia as secondary, Tokyo as tertiary, and Sydney as quaternary. During our disaster recovery drills, the measured failover time was <strong>28 seconds</strong> from detection to successful content delivery from backup origin.
+        </p>
+        <p>
+            The best part? Origin Groups are <strong>free</strong>. They're not an add-on service or premium feature. They're just part of CloudFront.
+        </p>
+        <p>
+            Total disaster recovery incremental cost: <strong>$2.05/month</strong>.
+        </p>
+
+        <div class="highlight-box">
+            <strong>Let that sink in:</strong> Enterprise-grade, multi-region, automatic disaster recovery for the cost of a cup of coffee.
+        </div>
+
+        <h2>The Economics That Changed Everything</h2>
+        <p>
+            When we presented the final architecture to leadership, the numbers told a compelling story:
+        </p>
+        <ul>
+            <li><strong>Existing single-region setup:</strong> $699.58/month</li>
+            <li><strong>New multi-region setup with full DR:</strong> $701.55/month</li>
+            <li><strong>Incremental increase:</strong> $2.05 (0.29%)</li>
+        </ul>
+        <p>
+            But the cost savings from optimizations funded the disaster recovery and then some:
+        </p>
+        <ul>
+            <li>Storage optimization (Intelligent-Tiering): <strong>$46/month saved</strong></li>
+            <li>Cache optimization: <strong>$673/month saved</strong></li>
+            <li>Eliminating Lambda@Edge approach: <strong>$150/month saved</strong></li>
+            <li><strong>Total savings: $869/month</strong></li>
+        </ul>
+        <p>
+            Net result: <strong>$867/month savings</strong> while dramatically improving reliability.
+        </p>
+
+        <h2>Measuring Success: What Actually Matters</h2>
+        <p>
+            After deploying the new architecture, we tracked metrics religiously for three months:
+        </p>
+        <ul>
+            <li><strong>Global P50 latency:</strong> 42ms (target: 50ms) ✅</li>
+            <li><strong>Cache hit rate:</strong> 92.1% (target: 90%) ✅</li>
+            <li><strong>System availability:</strong> 99.97% over three months ✅</li>
+            <li><strong>Failover time:</strong> 28 seconds (target: 30 seconds) ✅</li>
+        </ul>
+        <p>
+            The operational improvements surprised us. With automatic failover, on-call escalations dropped 67%. Deployment frequency increased from monthly to weekly. Team velocity went up 40%.
+        </p>
+
+        <h2>What I'd Do Differently</h2>
+        <p>
+            Looking back, a few things stand out as lessons learned:
+        </p>
+        <ol>
+            <li><strong>Start measuring access patterns from day one.</strong> Even in the MVP phase, just log S3 access patterns to CloudWatch.</li>
+            <li><strong>Implement Intelligent-Tiering immediately</strong> on every S3 bucket. There's literally no downside.</li>
+            <li><strong>Have disaster recovery conversations much earlier.</strong> The Origin Groups feature has been available for years.</li>
+            <li><strong>Test failover scenarios in production</strong> earlier and more often.</li>
+            <li><strong>Document architectural decisions as they happen,</strong> not months later.</li>
+        </ol>
+
+        <h2>The Real Value: Team Leverage</h2>
+        <p>
+            The most underappreciated benefit of good architecture is how it amplifies your entire engineering team.
+        </p>
+        <p>
+            When infrastructure is unreliable, engineers spend time firefighting. When it's overpriced, every new feature becomes a budget conversation. When it's complex, onboarding takes months instead of weeks.
+        </p>
+        <p>
+            But when your architecture is simple, cost-efficient, and reliable? Magic happens:
+        </p>
+        <ul>
+            <li>Time-to-productivity for new engineers dropped from 6 weeks to 3 weeks</li>
+            <li>Deploy frequency went from monthly to weekly</li>
+            <li>Feature velocity increased 40%</li>
+        </ul>
+        <p>
+            That's the real ROI that's hard to quantify in spreadsheets but obvious in practice.
+        </p>
+
+        <h2>A Few Final Thoughts</h2>
+        <p>
+            If there's one lesson from this entire experience, it's this: <strong>the best architecture isn't the most sophisticated. It's the one that solves the business problem efficiently using boring, reliable technology.</strong>
+        </p>
+        <p>
+            We didn't need Kubernetes. We didn't need a service mesh. We didn't need custom failover logic. We needed S3 buckets with smart storage classes, CloudFront with properly configured cache behaviors, and Origin Groups for automatic failover.
+        </p>
+        <p>
+            The entire disaster recovery solution that would have cost $50,000/year with a traditional approach cost us $24.60/year by using built-in AWS features correctly.
+        </p>
+        <p>
+            The second lesson: <strong>data beats intuition every time.</strong> We thought we knew which files were frequently accessed. We were wrong. The data showed us a better way.
+        </p>
+
+        <div class="cta-content" style="margin-top: 3rem;">
+            <h3>📬 Found This Helpful?</h3>
+            <p>Connect with me on LinkedIn to discuss cloud architecture and cost optimization strategies.</p>
+            <div class="cta-buttons">
+                <a href="https://www.linkedin.com/in/goelrah" target="_blank" rel="noopener" class="btn btn-primary">
+                    Connect on LinkedIn
+                </a>
+                <a href="https://github.com/ai-n-cloud-architects/aws-compoents-config-test" target="_blank" rel="noopener" class="btn btn-secondary">
+                    View on GitHub
+                </a>
+            </div>
+        </div>
+
+        <h2>Resources for Deeper Learning</h2>
+        <p>If you want to dive deeper into the technologies discussed:</p>
+        <ul>
+            <li><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/intelligent-tiering.html" target="_blank" rel="noopener">S3 Intelligent-Tiering Overview</a></li>
+            <li><a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/high_availability_origin_failover.html" target="_blank" rel="noopener">CloudFront Origin Groups for Failover</a></li>
+            <li><a href="https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/cache-hit-ratio.html" target="_blank" rel="noopener">Optimizing Cache Hit Rates</a></li>
+            <li><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/replication.html" target="_blank" rel="noopener">S3 Cross-Region Replication</a></li>
+            <li><a href="https://docs.aws.amazon.com/wellarchitected/latest/cost-optimization-pillar/welcome.html" target="_blank" rel="noopener">AWS Well-Architected Framework - Cost Optimization</a></li>
+        </ul>
+
+        <p style="margin-top: 3rem; color: var(--text-light); font-style: italic;">
+            Thanks for reading. If you found this valuable, I'd love to hear about your own experiences with cost optimization and disaster recovery architecture.
+        </p>
+
+        <div class="post-tags" style="margin-top: 2rem;">
+            <span class="tag">#CloudArchitecture</span>
+            <span class="tag">#CostOptimization</span>
+            <span class="tag">#AWS</span>
+            <span class="tag">#TechnicalLeadership</span>
+            <span class="tag">#DisasterRecovery</span>
+            <span class="tag">#SystemDesign</span>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-main">
+                <p class="footer-brand">☁️ Rahul Goel</p>
+                <p class="footer-tagline">Building efficient cloud architectures, one AWS service at a time.</p>
+            </div>
+            <div class="footer-links">
+                <a href="https://github.com/Goelrah" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://www.linkedin.com/in/goelrah" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="/">Blog</a>
+            </div>
+            <p class="footer-copyright">&copy; 2026 Rahul Goel. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>
