@@ -3,14 +3,15 @@ import { Building2, ExternalLink } from 'lucide-react'
 const experiences = [
   {
     company: 'Amazon',
-    role: 'Principal Technical Program Manager',
-    period: '2021 – Present',
+    role: 'Senior Technical Program Manager (Principal Scope)',
+    period: 'Mar 2022 – Present',
     location: 'Bangalore, India',
     color: 'from-orange-500 to-yellow-500',
     highlights: [
-      'Governed $162M AWS cloud portfolio, delivering $8M/year savings through Cloud FinOps frameworks and Terraform-based cost guardrails',
-      'Architected and deployed "AskGenie" – a production GenAI RAG system on AWS Bedrock + LangChain, improving operational efficiency by 25% with $2.3M annual ROI',
-      'Principal program lead for $5.3B payment modernization charter, achieving 99.99% uptime for millions of daily transactions across global markets',
+      'Cloud Portfolio Governance: Governed $162M AWS infrastructure, implemented automated cost-control frameworks and Terraform-based guardrails, delivering $8M/year recurring savings',
+      'GenAI Architecture: Architected "AskGenie" – production RAG system using AWS Bedrock + LangChain with optimized vector embeddings, achieving 25% efficiency gain and $2.3M annual ROI',
+      'Payment Modernization: Principal lead for $5.3B charter, authored System Design reviews for cloud-native Java API Gateways, ensuring 99.99% uptime for millions of daily transactions',
+      'TPM Excellence: Established enterprise-wide governance frameworks optimizing cross-functional velocity by 15%, mentored 10+ Senior Engineers and TPMs',
     ],
   },
   {
