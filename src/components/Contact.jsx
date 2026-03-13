@@ -1,0 +1,147 @@
+import { Mail, Linkedin, Github, Calendar, Briefcase, MessageSquare, Download } from 'lucide-react'
+
+const workOptions = [
+  {
+    icon: Briefcase,
+    title: 'Full-Time Roles',
+    description: 'Principal TPM, GenAI Leadership, or Cloud Program Leadership positions at innovative companies.',
+  },
+  {
+    icon: MessageSquare,
+    title: 'Advisory & Consulting',
+    description: 'Part-time advisory on GenAI strategy, Cloud FinOps reviews, or program governance for startups and scale-ups.',
+  },
+  {
+    icon: Calendar,
+    title: 'Speaking & Workshops',
+    description: 'Conference talks, internal workshops, or executive briefings on GenAI, FinOps, and TPM leadership.',
+  },
+]
+
+export default function Contact() {
+  return (
+    <section id="contact" className="relative">
+      <div className="section-container">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
+          {/* Left: Content */}
+          <div className="animate-on-scroll">
+            <span className="tag mb-4">Work With Me</span>
+            <h2 className="section-title text-white">
+              Let's Build <span className="gradient-text">Something Great</span>
+            </h2>
+            
+            <p className="text-surface-300 text-lg leading-relaxed mb-8">
+              I'm open to conversations with hiring managers seeking Principal TPM or GenAI 
+              leadership, founders needing strategic guidance on cloud architecture and AI 
+              adoption, and organizations looking to establish cost governance and program 
+              excellence.
+            </p>
+
+            {/* Work Options */}
+            <div className="space-y-4 mb-8">
+              {workOptions.map((option) => (
+                <div key={option.title} className="flex gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-primary-500/10 flex items-center justify-center flex-shrink-0">
+                    <option.icon className="w-6 h-6 text-primary-400" />
+                  </div>
+                  <div>
+                    <h3 className="text-white font-semibold mb-1">{option.title}</h3>
+                    <p className="text-sm text-surface-400">{option.description}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Resume Download */}
+            <div className="glass-card p-6 mb-8">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h3 className="text-white font-semibold mb-1">Download My Resume</h3>
+                  <p className="text-sm text-surface-400">Last updated: March 2026</p>
+                </div>
+                <a
+                  href="/assets/RahulGoel_Resume.pdf"
+                  download
+                  className="btn-primary"
+                >
+                  <Download className="w-5 h-5" />
+                  PDF
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Right: Contact Card */}
+          <div className="animate-on-scroll stagger-2">
+            <div className="glass-card p-8 lg:p-10">
+              <h3 className="text-2xl font-bold text-white mb-6">Get in Touch</h3>
+              
+              {/* Contact Methods */}
+              <div className="space-y-4 mb-8">
+                <a
+                  href="mailto:rahul.goel@example.com"
+                  className="flex items-center gap-4 p-4 rounded-xl bg-surface-800/50 hover:bg-surface-800 transition-colors group"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-primary-500/10 flex items-center justify-center group-hover:bg-primary-500/20 transition-colors">
+                    <Mail className="w-6 h-6 text-primary-400" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-surface-400">Email</p>
+                    <p className="text-white font-medium">rahul.goel@example.com</p>
+                  </div>
+                </a>
+
+                <a
+                  href="https://www.linkedin.com/in/goelrah"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-4 p-4 rounded-xl bg-surface-800/50 hover:bg-surface-800 transition-colors group"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center group-hover:bg-blue-500/20 transition-colors">
+                    <Linkedin className="w-6 h-6 text-blue-400" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-surface-400">LinkedIn</p>
+                    <p className="text-white font-medium">linkedin.com/in/goelrah</p>
+                  </div>
+                </a>
+
+                <a
+                  href="https://github.com/Goelrah"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-4 p-4 rounded-xl bg-surface-800/50 hover:bg-surface-800 transition-colors group"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-surface-600/50 flex items-center justify-center group-hover:bg-surface-600 transition-colors">
+                    <Github className="w-6 h-6 text-surface-300" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-surface-400">GitHub</p>
+                    <p className="text-white font-medium">github.com/Goelrah</p>
+                  </div>
+                </a>
+              </div>
+
+              {/* Location */}
+              <div className="pt-6 border-t border-surface-700/50">
+                <p className="text-sm text-surface-400 mb-2">Location</p>
+                <p className="text-white">Bangalore, India</p>
+                <p className="text-sm text-surface-400 mt-1">
+                  Open to remote opportunities globally
+                </p>
+              </div>
+
+              {/* Response Time */}
+              <div className="mt-6 p-4 rounded-xl bg-green-500/10 border border-green-500/20">
+                <p className="text-sm text-green-400">
+                  <span className="inline-block w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse" />
+                  Typically responds within 24-48 hours
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
