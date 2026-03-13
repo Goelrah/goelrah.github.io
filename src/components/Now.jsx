@@ -8,7 +8,7 @@ const currentFocus = [
   },
   {
     icon: DollarSign,
-    title: 'Cloud FinOps Governance',
+    title: 'Cloud Cost Optimization',
     description: 'Running cost optimization reviews and implementing Terraform-based guardrails for $100M+ AWS portfolios. Targeting 20-30% cost reduction.',
   },
   {

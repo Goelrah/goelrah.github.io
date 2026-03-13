@@ -7,7 +7,7 @@ const faqs = [
     answer: 'I specialize in taking GenAI from POC to production. This includes use case prioritization, architecture design (RAG systems, LLM orchestration), and establishing responsible AI guardrails. My AskGenie project delivered $2.3M ROI—I can help you achieve similar outcomes.',
   },
   {
-    question: 'How do I approach Cloud FinOps reviews?',
+    question: 'How do I approach Cloud Cost Optimization?',
     answer: 'I run a structured 4-week sprint: Week 1 is discovery and tagging audit, Week 2 focuses on quick wins (zombie resources, rightsizing), Week 3 establishes governance dashboards, and Week 4 builds cost culture through training. Typical result: 15-25% cost reduction.',
   },
   {

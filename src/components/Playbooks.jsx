@@ -12,7 +12,7 @@ const playbooks = [
   },
   {
     icon: DollarSign,
-    name: '4-Week FinOps Cost Sprint',
+    name: '4-Week Cloud Cost Sprint',
     tagline: 'Find 20% Savings in 4 Weeks',
     description: 'An intensive cost optimization sprint that identifies quick wins and establishes sustainable cost governance. Includes automated tagging, rightsizing analysis, reserved instance planning, and cost accountability frameworks.',
     whenToUse: 'When cloud costs are growing faster than business value, or when you need to establish cost culture in engineering teams.',
@@ -53,7 +53,7 @@ export default function Playbooks() {
     <section id="playbooks" className="relative">
       <div className="section-container">
         <div className="text-center mb-16">
-          <span className="tag mb-4">GenAI & FinOps Playbooks</span>
+          <span className="tag mb-4">GenAI & Cloud Optimization Playbooks</span>
           <h2 className="section-title text-white">
             Productized <span className="gradient-text">Frameworks & Methods</span>
           </h2>

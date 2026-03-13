@@ -4,8 +4,10 @@ import { ArrowRight, Download, ChevronDown, Zap, Cloud, Brain, TrendingUp } from
 const roles = [
   'Principal TPM',
   'GenAI Architect',
-  'Cloud FinOps Leader',
-  'Payment Modernization Lead',
+  'Engineering Director',
+  'Director of Technology',
+  'Engineering Manager',
+  'Cloud Expert & Optimizer',
   'AWS Solutions Architect',
 ]
 

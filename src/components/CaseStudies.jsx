@@ -23,8 +23,8 @@ const caseStudies = [
   },
   {
     icon: DollarSign,
-    title: 'Cloud FinOps Transformation',
-    context: 'AWS Cost Optimization | Amazon',
+    title: 'Cloud Cost Optimization',
+    context: 'AWS Cost Governance | Amazon',
     color: 'from-green-500 to-emerald-500',
     problem: '$162M AWS portfolio with 30% YoY cost growth. No visibility into cost drivers. Teams had no accountability for cloud spend.',
     approach: 'Implemented FinOps framework with Terraform guardrails, automated tagging, real-time cost dashboards, and monthly business reviews with cost owners.',

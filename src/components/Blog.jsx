@@ -5,10 +5,10 @@ import { blogStore } from '../utils/blogStore'
 // Blog categories for SEO
 const categories = [
   'GenAI in Enterprise',
-  'Cloud FinOps',
+  'Cloud Optimization',
   'TPM Playbooks',
   'Distributed Systems',
-  'Org Design & Career',
+  'Engineering Leadership',
   'AI Automation',
 ]
 
@@ -232,7 +232,7 @@ export default function Blog({ blogView, setBlogView, selectedPost, setSelectedP
         <div className="text-center mb-12">
           <span className="tag mb-4">Blog</span>
           <h2 className="section-title text-white">
-            Insights on <span className="gradient-text">GenAI, FinOps & TPM Leadership</span>
+            Insights on <span className="gradient-text">GenAI, Cloud & Engineering Leadership</span>
           </h2>
           <p className="section-subtitle mx-auto">
             Practical insights for VP Engineering, CTOs, Heads of Product, and senior TPMs 
