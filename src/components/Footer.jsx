@@ -33,7 +33,7 @@ export default function Footer({ scrollToSection }) {
             </p>
             <div className="flex items-center gap-4">
               <a
-                href="https://www.linkedin.com/in/goelrah"
+                href="https://www.linkedin.com/in/goelrahul25"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-lg bg-surface-800 flex items-center justify-center text-surface-400 hover:text-primary-400 hover:bg-surface-700 transition-all"
@@ -49,7 +49,7 @@ export default function Footer({ scrollToSection }) {
                 <Github className="w-5 h-5" />
               </a>
               <a
-                href="mailto:rahul.goel@example.com"
+                href="mailto:rahul.g2510@outlook.com"
                 className="w-10 h-10 rounded-lg bg-surface-800 flex items-center justify-center text-surface-400 hover:text-primary-400 hover:bg-surface-700 transition-all"
               >
                 <Mail className="w-5 h-5" />
