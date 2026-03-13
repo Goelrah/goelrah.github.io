@@ -63,16 +63,17 @@ export default function Hero({ scrollToSection }) {
             <span className="text-sm text-surface-300">Available for Principal TPM & GenAI Leadership roles</span>
           </div>
 
-          {/* Main Headline */}
-          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight">
-            Transforming Complex Cloud Portfolios into{' '}
-            <span className="gradient-text">High-Leverage Outcomes</span>
+          {/* Main Headline - SEO Optimized */}
+          <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-white mb-4 leading-tight">
+            Principal Technical Program Manager{' '}
+            <span className="text-primary-400">&</span>{' '}
+            <span className="gradient-text">AWS Certified Solutions Architect</span>
           </h1>
 
           {/* Typing Animation */}
-          <div className="h-12 sm:h-16 flex items-center justify-center mb-8">
-            <span className="text-xl sm:text-2xl lg:text-3xl text-surface-300">
-              I'm a{' '}
+          <div className="h-10 sm:h-12 flex items-center justify-center mb-6">
+            <span className="text-lg sm:text-xl lg:text-2xl text-surface-300">
+              Also a{' '}
               <span className="text-primary-400 font-semibold">
                 {displayText}
                 <span className="animate-pulse">|</span>
@@ -80,11 +81,15 @@ export default function Hero({ scrollToSection }) {
             </span>
           </div>
 
-          {/* Subheadline */}
-          <p className="text-lg sm:text-xl text-surface-400 max-w-3xl mx-auto mb-12 leading-relaxed">
-            15+ years driving large-scale programs at Amazon, Deloitte, and global enterprises. 
-            I architect GenAI systems, govern $100M+ cloud portfolios, and deliver measurable 
-            business outcomes—from $8M/year savings to 99.99% uptime.
+          {/* Subheadline - Value Proposition */}
+          <h2 className="text-xl sm:text-2xl text-surface-200 max-w-4xl mx-auto mb-6 leading-relaxed font-medium">
+            GenAI Architect & Cloud Portfolio Leader delivering measurable enterprise outcomes
+          </h2>
+
+          {/* Supporting Text */}
+          <p className="text-base sm:text-lg text-surface-400 max-w-3xl mx-auto mb-12 leading-relaxed">
+            15+ years at Amazon, Deloitte, and global enterprises. $162M AWS portfolio governance, 
+            $8M/year cost savings, $2.3M GenAI ROI, and 99.99% payment system uptime.
           </p>
 
           {/* CTA Buttons */}
