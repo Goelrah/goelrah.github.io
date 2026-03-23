@@ -2,20 +2,19 @@ import { useState, useEffect } from 'react'
 import { ArrowRight, Download, ChevronDown, Zap, Cloud, Brain, TrendingUp } from 'lucide-react'
 
 const roles = [
-  'Principal TPM',
-  'GenAI Architect',
+  'Senior TPM',
+  'GenAI/AI Leader',
+  'Solutions Architect',
   'Engineering Director',
-  'Director of Technology',
-  'Engineering Manager',
-  'Cloud Expert & Optimizer',
-  'AWS Solutions Architect',
+  'Cloud FinOps Expert',
+  'AWS Certified Architect',
 ]
 
 const metrics = [
-  { value: '$162M', label: 'AWS Portfolio Managed', icon: Cloud },
-  { value: '$8M/yr', label: 'Cost Savings Delivered', icon: TrendingUp },
-  { value: '$2.3M', label: 'GenAI ROI Generated', icon: Brain },
-  { value: '99.99%', label: 'System Uptime', icon: Zap },
+  { value: '$165M', label: 'AWS Portfolio @ 85% Discount', icon: Cloud },
+  { value: '$24M', label: 'Cost Savings (2 Years)', icon: TrendingUp },
+  { value: '4,500/day', label: 'Tickets Auto-Resolved by AI', icon: Brain },
+  { value: '$5.3B', label: 'Payment Program Led', icon: Zap },
 ]
 
 export default function Hero({ scrollToSection }) {
@@ -83,13 +82,13 @@ export default function Hero({ scrollToSection }) {
 
           {/* Subheadline - Value Proposition */}
           <h2 className="text-xl sm:text-2xl text-surface-200 max-w-4xl mx-auto mb-6 leading-relaxed font-medium">
-            GenAI Architect & Cloud Portfolio Leader delivering measurable enterprise outcomes
+            AI/GenAI Leader & Cloud FinOps Expert delivering enterprise-scale automation
           </h2>
 
           {/* Supporting Text */}
           <p className="text-base sm:text-lg text-surface-400 max-w-3xl mx-auto mb-12 leading-relaxed">
-            15+ years at Amazon, Deloitte, and global enterprises. $162M AWS portfolio governance, 
-            $8M/year cost savings, $2.3M GenAI ROI, and 99.99% payment system uptime.
+            19+ years at Amazon & Fortune 500. $165M AWS portfolio at 85% discount, $24M cost savings, 
+            4,500 tickets/day auto-resolved by AI, $5.3B payment modernization program.
           </p>
 
           {/* CTA Buttons */}

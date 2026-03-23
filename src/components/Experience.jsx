@@ -3,39 +3,45 @@ import { Building2, ExternalLink } from 'lucide-react'
 const experiences = [
   {
     company: 'Amazon',
-    role: 'Senior Technical Program Manager (Principal Scope)',
+    role: 'Senior Technical Program Manager',
     period: 'Mar 2022 – Present',
     location: 'Bangalore, India',
     color: 'from-orange-500 to-yellow-500',
     highlights: [
-      'Cloud Portfolio Governance: Governed $162M AWS infrastructure, implemented automated cost-control frameworks and Terraform-based guardrails, delivering $8M/year recurring savings',
-      'GenAI Architecture: Architected "AskGenie" – production RAG system using AWS Bedrock + LangChain with optimized vector embeddings, achieving 25% efficiency gain and $2.3M annual ROI',
-      'Payment Modernization: Principal lead for $5.3B charter, authored System Design reviews for cloud-native Java API Gateways, ensuring 99.99% uptime for millions of daily transactions',
-      'TPM Excellence: Established enterprise-wide governance frameworks optimizing cross-functional velocity by 15%, mentored 10+ Senior Engineers and TPMs',
+      'Governed $165M AWS cloud portfolio at 85% discounted rate across 85+ engineering teams; implemented 20+ automated cost guardrails — $12M/year savings for 2 consecutive years ($24M total)',
+      'Built AskGenie RAG-based automation — 88% confidence threshold, 4,500 tickets/day auto-resolved without engineer intervention; $2.3M annual ROI',
+      'Scaled Ada procurement AI to 1,200+ global facilities serving 3,500+ managers — orders under $10K auto-approved by AI',
+      'Principal Program Lead for $5.3B Naazir payment modernization (Global Engineering and Security Service); executive stakeholder management across C-suite',
+      'Built SafeDrive real-time safety monitoring — cut serious incidents by 24%, improved on-time delivery by 18%',
+      'Deployed EagleEye tracking 2.5M+ data points/day across 15+ international markets; improved operational throughput by 20%',
     ],
   },
   {
     company: 'Deloitte',
-    role: 'Senior Manager – Technology Consulting',
-    period: '2015 – 2021',
-    location: 'Bangalore, India',
+    role: 'Engineering Lead / Director of Engineering',
+    period: 'Nov 2015 – Mar 2022',
+    location: 'Gurgaon, India',
     color: 'from-green-500 to-emerald-500',
     highlights: [
-      'Built and led a 45-member cross-disciplinary engineering practice delivering end-to-end digital transformations for Fortune 500 clients',
-      'Established modern microservices architecture standards, CI/CD pipelines, and security-by-design practices across the practice',
-      'Drove 40% improvement in delivery velocity through standardized program governance frameworks and TPM coaching programs',
+      'Founded and scaled 45-member engineering practice; directed global talent acquisition for Fortune 500 clients (Broadcom, Scholastic)',
+      'Built Campaign Automation Platform with Adobe Campaign Manager — ML-based user bucketing and GenAI coupon generation; improved ROI by 2.5x, reduced churn by 12%',
+      'Led legacy CMS to cloud-native microservices migration for Scholastic; reduced time-to-market by 35%',
+      'Delivered branchless banking rollout with AI avatars and facial recognition — cut operational overhead by 40%',
+      'Led AR/VR integration into smart manufacturing — achieved 20% downtime reduction',
     ],
   },
   {
     company: 'Earlier Career',
-    role: 'Technical Lead & Architect',
-    period: '2009 – 2015',
-    location: 'Various',
+    role: 'Project Manager → Team Lead → Senior Developer',
+    period: '2005 – 2015',
+    location: 'India & Malaysia',
     color: 'from-blue-500 to-cyan-500',
     highlights: [
-      'RBS: Built high-availability trading systems processing $10B+ daily transactions with sub-millisecond latency requirements',
-      'Shell Infotech / Emerio: Architected enterprise integration solutions and led offshore delivery teams for global clients',
-      'Developed deep expertise in distributed systems, financial services technology, and large-scale program delivery',
+      'Shell Infotech / Deloitte: Architected Salesforce Commerce Cloud platform; lifted conversion rates by 25%',
+      'EMERIO Malaysia: Delivered process automation reducing manual effort by 10% using Sitecore CMS',
+      'Royal Bank of Scotland: Supported 16 mission-critical applications; improved uptime by 22% and incident response by 35%',
+      'Cincom Systems: Migrated Ruby rule engine to .NET saving $1.2M in annual royalty fees',
+      'Kale Consultants: Built airline booking systems for BCD Travel and Air India across 9 countries',
     ],
   },
 ]
@@ -47,11 +53,11 @@ export default function Experience() {
         <div className="text-center mb-16">
           <span className="tag mb-4">Experience & Impact</span>
           <h2 className="section-title text-white">
-            15+ Years of <span className="gradient-text">Measurable Outcomes</span>
+            19+ Years of <span className="gradient-text">Measurable Outcomes</span>
           </h2>
           <p className="section-subtitle mx-auto">
-            From building trading systems to governing $100M+ cloud portfolios—every role 
-            focused on delivering business value through technical excellence.
+            From building airline booking systems to governing $165M+ cloud portfolios and deploying 
+            AI that resolves 4,500 tickets daily—every role focused on automation and business value.
           </p>
         </div>
 

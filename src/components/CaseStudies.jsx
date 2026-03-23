@@ -1,126 +1,174 @@
-import { ArrowRight, CreditCard, Brain, DollarSign, Megaphone, Users, Server } from 'lucide-react'
+import { ArrowRight, Bot, Cloud, CreditCard, Shield, Truck, BarChart3 } from 'lucide-react'
 
 const caseStudies = [
   {
-    icon: CreditCard,
-    title: 'Payment Modernization at Scale',
-    context: 'Global Financial Services | Amazon',
-    color: 'from-blue-500 to-cyan-500',
-    problem: 'Legacy payment infrastructure couldn\'t scale to meet growing transaction volumes while maintaining regulatory compliance across 15+ markets.',
-    approach: 'Led architecture redesign with event-driven microservices, implemented circuit breakers and bulkheads, established real-time monitoring with sub-second alerting.',
-    result: '99.99% uptime achieved for $5.3B transaction charter. Millions of daily transactions processed with <100ms P99 latency. Zero critical incidents in 18 months.',
-    metrics: ['$5.3B Charter', '99.99% Uptime', '<100ms P99'],
-  },
-  {
-    icon: Brain,
-    title: 'AskGenie: Enterprise GenAI RAG System',
-    context: 'Knowledge Management | Amazon',
+    id: 'askgenie',
+    icon: Bot,
+    title: 'AskGenie: RAG-Based Ticket Automation',
+    subtitle: '4,500 tickets/day auto-resolved • $2.3M ROI',
+    category: 'GenAI / Automation',
     color: 'from-purple-500 to-pink-500',
-    problem: 'Operations teams spent 40% of time searching documentation and tribal knowledge. New hire onboarding took 6+ weeks due to scattered information.',
-    approach: 'Architected RAG system using AWS Bedrock (Claude), LangChain, and Pinecone. Implemented semantic chunking, hybrid search, and citation tracking.',
-    result: '25% improvement in operational efficiency. Onboarding time reduced to 3 weeks. $2.3M annual ROI from productivity gains.',
-    metrics: ['$2.3M ROI', '25% Efficiency', '50% Faster Onboarding'],
+    problem: 'SRE and Support teams were overwhelmed with repetitive tickets, spending 40% of time on issues that could be automated.',
+    approach: 'Built RAG-based automation using AWS Bedrock with 88% confidence threshold. Leveraged Kiro CLI to accelerate development cycles.',
+    results: [
+      '4,500 tickets/day resolved without engineer intervention',
+      '25% reduction in manual effort',
+      '$2.3M annual ROI',
+      '88% confidence threshold ensures quality',
+    ],
+    tech: ['AWS Bedrock', 'RAG Architecture', 'LangChain', 'Kiro CLI'],
   },
   {
-    icon: DollarSign,
-    title: 'Cloud Cost Optimization',
-    context: 'AWS Cost Governance | Amazon',
+    id: 'ada',
+    icon: BarChart3,
+    title: 'Ada: AI-Powered Procurement',
+    subtitle: '1,200+ facilities • 3,500+ managers • Auto-approval',
+    category: 'AI / Procurement',
     color: 'from-green-500 to-emerald-500',
-    problem: '$162M AWS portfolio with 30% YoY cost growth. No visibility into cost drivers. Teams had no accountability for cloud spend.',
-    approach: 'Implemented FinOps framework with Terraform guardrails, automated tagging, real-time cost dashboards, and monthly business reviews with cost owners.',
-    result: '$8M/year in sustained savings (5% of portfolio). Established cost culture with 100% tag compliance. Prevented $12M in projected overspend.',
-    metrics: ['$8M/yr Savings', '100% Tag Compliance', '$162M Governed'],
+    problem: 'Procurement approvals were bottlenecked by manual manager sign-offs, even for routine maintenance orders.',
+    approach: 'Scaled AI procurement system with intelligent thresholds—orders under $10K auto-approved by AI, above $10K routed for human approval.',
+    results: [
+      '1,200+ global facilities served',
+      '3,500+ managers using the system',
+      'Orders under $10K auto-approved',
+      'Eliminated manual overhead for routine procurement',
+    ],
+    tech: ['Machine Learning', 'Threshold Optimization', 'Workflow Automation'],
   },
   {
-    icon: Megaphone,
-    title: 'AI-Powered Marketing Automation',
-    context: 'Marketing Technology | Consulting',
-    color: 'from-orange-500 to-red-500',
-    problem: 'Marketing team creating 500+ campaign variations manually. 2-week lead time for personalized content. High error rate in compliance-sensitive copy.',
-    approach: 'Built GenAI templating system with guardrails for brand voice and compliance. Integrated with existing DAM and campaign management tools.',
-    result: '80% reduction in content creation time. Campaign launch time reduced from 2 weeks to 2 days. Zero compliance violations post-launch.',
-    metrics: ['80% Time Saved', '2 Days vs 2 Weeks', '0 Violations'],
+    id: 'cloud-finops',
+    icon: Cloud,
+    title: 'Cloud FinOps: $165M Portfolio Governance',
+    subtitle: '$24M savings over 2 years • 85% discount rate',
+    category: 'Cloud / FinOps',
+    color: 'from-blue-500 to-cyan-500',
+    problem: '$165M AWS portfolio with 85+ engineering teams lacked centralized cost governance and automated guardrails.',
+    approach: 'Implemented 20+ automated cost guardrails, audited sub-org AWS accounts, and negotiated 85% discounted rate.',
+    results: [
+      '$165M portfolio at 85% discounted rate',
+      '$12M/year savings for 2 consecutive years',
+      '$24M total cost savings',
+      '20+ automated guardrails deployed',
+    ],
+    tech: ['AWS', 'Terraform', 'CloudFormation', 'FinOps'],
   },
   {
-    icon: Users,
-    title: 'Engineering Practice Building',
-    context: 'Organizational Design | Deloitte',
-    color: 'from-indigo-500 to-violet-500',
-    problem: 'Fragmented delivery teams with inconsistent practices. High attrition due to lack of growth paths. Quality issues from missing standards.',
-    approach: 'Built 45-member practice with clear career ladders, standardized tech stack, CI/CD templates, and TPM coaching program.',
-    result: '40% improvement in delivery velocity. Attrition reduced from 25% to 12%. Practice grew from 5 to 45 engineers in 3 years.',
-    metrics: ['45 Engineers', '40% Velocity Gain', '12% Attrition'],
+    id: 'naazir',
+    icon: CreditCard,
+    title: 'Naazir: $5.3B Payment Modernization',
+    subtitle: 'Global Engineering & Security Service',
+    category: 'Payments / Program',
+    color: 'from-orange-500 to-yellow-500',
+    problem: 'Legacy payment infrastructure needed modernization to support global scale and security requirements.',
+    approach: 'Principal Program Lead with full roadmap ownership across parallel delivery streams. Executive stakeholder management across C-suite, engineering, and finance.',
+    results: [
+      '$5.3B program charter',
+      'Global Engineering and Security Service',
+      'C-suite executive stakeholder management',
+      'Parallel delivery streams coordinated',
+    ],
+    tech: ['Payment Rails', 'Security', 'Program Management'],
   },
   {
-    icon: Server,
-    title: 'Multi-Region Disaster Recovery',
-    context: 'Infrastructure | Cloud Architecture',
-    color: 'from-teal-500 to-cyan-500',
-    problem: 'Single-region deployment with no DR capability. Previous outage cost $500K in lost revenue. Leadership demanded enterprise-grade resilience.',
-    approach: 'Designed multi-region active-passive architecture with automated failover. Implemented chaos engineering practices and monthly DR drills.',
-    result: 'Achieved 99.97% availability. Failover time reduced to 28 seconds. DR cost: $2/month using native AWS features.',
-    metrics: ['99.97% Uptime', '28s Failover', '$2/mo DR Cost'],
+    id: 'safedrive',
+    icon: Shield,
+    title: 'SafeDrive: Real-Time Safety Monitoring',
+    subtitle: '24% incident reduction • 18% delivery improvement',
+    category: 'IoT / Safety',
+    color: 'from-red-500 to-orange-500',
+    problem: 'Delivery partner safety incidents were impacting both human welfare and delivery reliability.',
+    approach: 'Built real-time safety monitoring system that optimizes routes using live risk data.',
+    results: [
+      '24% reduction in serious incidents',
+      '18% improvement in on-time delivery',
+      'Real-time route optimization',
+      'Live risk data integration',
+    ],
+    tech: ['IoT', 'Real-time Analytics', 'Route Optimization'],
+  },
+  {
+    id: 'eagleeye',
+    icon: Truck,
+    title: 'EagleEye: Global Operations Tracking',
+    subtitle: '2.5M+ data points/day • 15+ markets',
+    category: 'Observability / Scale',
+    color: 'from-indigo-500 to-purple-500',
+    problem: 'Lack of unified visibility across international operations was limiting throughput optimization.',
+    approach: 'Deployed comprehensive tracking system with Prometheus and DataDog observability integration.',
+    results: [
+      '2.5M+ data points tracked daily',
+      '15+ international markets covered',
+      '20% improvement in operational throughput',
+      'Unified observability dashboard',
+    ],
+    tech: ['Prometheus', 'DataDog', 'Real-time Tracking'],
   },
 ]
 
 export default function CaseStudies() {
   return (
-    <section id="case-studies" className="relative bg-surface-900/30">
+    <section id="case-studies" className="relative">
       <div className="section-container">
         <div className="text-center mb-16">
           <span className="tag mb-4">Case Studies</span>
           <h2 className="section-title text-white">
-            Selected <span className="gradient-text">Programs & Impact</span>
+            AI & Cloud Programs with <span className="gradient-text">Measurable Impact</span>
           </h2>
           <p className="section-subtitle mx-auto">
-            Real problems, real solutions, real outcomes. Each case study represents 
-            a significant program where I drove measurable business value.
+            Real problems, real solutions, real outcomes. Each case study represents a significant 
+            program where AI and automation delivered measurable business value.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {caseStudies.map((study, index) => (
             <div
-              key={study.title}
-              className="glass-card overflow-hidden card-hover animate-on-scroll group"
+              key={study.id}
+              className="glass-card p-6 hover:scale-[1.02] transition-transform duration-300 animate-on-scroll"
               style={{ transitionDelay: `${index * 0.1}s` }}
             >
               {/* Header */}
-              <div className={`p-6 bg-gradient-to-r ${study.color} bg-opacity-10`}>
-                <div className="flex items-start justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${study.color} flex items-center justify-center`}>
-                      <study.icon className="w-6 h-6 text-white" />
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-bold text-white">{study.title}</h3>
-                      <p className="text-sm text-surface-400">{study.context}</p>
-                    </div>
-                  </div>
+              <div className="flex items-start gap-4 mb-4">
+                <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${study.color} flex items-center justify-center flex-shrink-0`}>
+                  <study.icon className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <span className="text-xs text-primary-400 font-medium uppercase tracking-wider">
+                    {study.category}
+                  </span>
+                  <h3 className="text-lg font-bold text-white mt-1">{study.title}</h3>
                 </div>
               </div>
 
-              {/* Content */}
-              <div className="p-6 space-y-4">
-                <div>
-                  <h4 className="text-xs font-semibold text-red-400 uppercase tracking-wider mb-1">Problem</h4>
-                  <p className="text-sm text-surface-400">{study.problem}</p>
-                </div>
-                <div>
-                  <h4 className="text-xs font-semibold text-yellow-400 uppercase tracking-wider mb-1">Approach</h4>
-                  <p className="text-sm text-surface-400">{study.approach}</p>
-                </div>
-                <div>
-                  <h4 className="text-xs font-semibold text-green-400 uppercase tracking-wider mb-1">Result</h4>
-                  <p className="text-sm text-surface-300">{study.result}</p>
-                </div>
+              {/* Subtitle */}
+              <p className="text-primary-400 font-semibold text-sm mb-4">{study.subtitle}</p>
 
-                {/* Metrics */}
-                <div className="flex flex-wrap gap-2 pt-4 border-t border-surface-700/50">
-                  {study.metrics.map((metric) => (
-                    <span key={metric} className="tag text-xs">{metric}</span>
+              {/* Problem */}
+              <div className="mb-4">
+                <h4 className="text-xs font-semibold text-surface-400 uppercase tracking-wider mb-2">Problem</h4>
+                <p className="text-sm text-surface-300">{study.problem}</p>
+              </div>
+
+              {/* Results */}
+              <div className="mb-4">
+                <h4 className="text-xs font-semibold text-surface-400 uppercase tracking-wider mb-2">Results</h4>
+                <ul className="space-y-1">
+                  {study.results.slice(0, 3).map((result, i) => (
+                    <li key={i} className="text-sm text-surface-300 flex items-start gap-2">
+                      <span className="text-green-400 mt-1">✓</span>
+                      {result}
+                    </li>
                   ))}
-                </div>
+                </ul>
+              </div>
+
+              {/* Tech Stack */}
+              <div className="flex flex-wrap gap-2 mt-auto pt-4 border-t border-surface-700/50">
+                {study.tech.map((tech) => (
+                  <span key={tech} className="text-xs px-2 py-1 bg-surface-800 rounded text-surface-400">
+                    {tech}
+                  </span>
+                ))}
               </div>
             </div>
           ))}
