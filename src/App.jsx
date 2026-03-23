@@ -2,20 +2,14 @@ import { useState, useEffect } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
-import Now from './components/Now'
 import Experience from './components/Experience'
 import CaseStudies from './components/CaseStudies'
-import Playbooks from './components/Playbooks'
-import Blog from './components/Blog'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
-import AIAssistant from './components/AIAssistant'
 import ScrollToTop from './components/ScrollToTop'
 
 function App() {
   const [activeSection, setActiveSection] = useState('top')
-  const [blogView, setBlogView] = useState('list') // 'list', 'editor', 'post'
-  const [selectedPost, setSelectedPost] = useState(null)
 
   // Intersection Observer for scroll animations and active section tracking
   useEffect(() => {
@@ -79,16 +73,8 @@ function App() {
       <main className="relative z-10">
         <Hero scrollToSection={scrollToSection} />
         <About />
-        <Now />
         <Experience />
         <CaseStudies />
-        <Playbooks />
-        <Blog 
-          blogView={blogView}
-          setBlogView={setBlogView}
-          selectedPost={selectedPost}
-          setSelectedPost={setSelectedPost}
-        />
         <Contact />
       </main>
       
@@ -96,7 +82,6 @@ function App() {
       <Footer scrollToSection={scrollToSection} />
       
       {/* Floating Components */}
-      <AIAssistant />
       <ScrollToTop />
     </div>
   )

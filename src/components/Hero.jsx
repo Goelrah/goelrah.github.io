@@ -64,9 +64,9 @@ export default function Hero({ scrollToSection }) {
 
           {/* Main Headline - SEO Optimized */}
           <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-white mb-4 leading-tight">
-            Principal Technical Program Manager{' '}
+            Senior Technical Program Manager{' '}
             <span className="text-primary-400">&</span>{' '}
-            <span className="gradient-text">AWS Certified Solutions Architect</span>
+            <span className="gradient-text">AI/GenAI Leader</span>
           </h1>
 
           {/* Typing Animation */}
@@ -101,10 +101,10 @@ export default function Hero({ scrollToSection }) {
               <ArrowRight className="w-5 h-5" />
             </button>
             <button
-              onClick={() => scrollToSection('playbooks')}
+              onClick={() => scrollToSection('case-studies')}
               className="btn-secondary text-lg px-8 py-4"
             >
-              Explore GenAI Playbooks
+              View AI Projects
             </button>
             <a
               href="/assets/RahulGoel_Resume.pdf"

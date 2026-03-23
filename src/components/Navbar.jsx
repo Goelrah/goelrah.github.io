@@ -2,13 +2,9 @@ import { useState, useEffect } from 'react'
 import { Menu, X, Download, Sparkles } from 'lucide-react'
 
 const navItems = [
-  { id: 'top', label: 'Home' },
   { id: 'about', label: 'About' },
-  { id: 'now', label: 'Now' },
   { id: 'experience', label: 'Experience' },
-  { id: 'case-studies', label: 'Case Studies' },
-  { id: 'playbooks', label: 'Playbooks' },
-  { id: 'blog', label: 'Blog' },
+  { id: 'case-studies', label: 'Projects' },
   { id: 'contact', label: 'Contact' },
 ]
 
