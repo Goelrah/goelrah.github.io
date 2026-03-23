@@ -63,7 +63,7 @@ export default function About() {
 
             {/* Brand Adjectives */}
             <div className="flex flex-wrap gap-2 mt-8">
-              {['AI/GenAI Leader', 'Cloud FinOps', 'Automation-First', 'Data-Driven', 'Executive Stakeholder Mgmt', 'Open to Relocation'].map((adj) => (
+              {['Solutions Architect', 'AI/GenAI Leader', 'Cloud FinOps', 'Automation-First', 'AWS Certified', 'Open to Relocation'].map((adj) => (
                 <span key={adj} className="tag">{adj}</span>
               ))}
             </div>
@@ -79,7 +79,7 @@ export default function About() {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-white">Rahul Goel</h3>
-                  <p className="text-surface-400">Senior TPM | AI/GenAI Leader</p>
+                  <p className="text-surface-400">Senior TPM | Solutions Architect | AI/GenAI Leader</p>
                   <p className="text-sm text-primary-400">Open to Relocation</p>
                 </div>
               </div>

@@ -64,9 +64,11 @@ export default function Hero({ scrollToSection }) {
 
           {/* Main Headline - SEO Optimized */}
           <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold text-white mb-4 leading-tight">
-            Senior Technical Program Manager{' '}
-            <span className="text-primary-400">&</span>{' '}
-            <span className="gradient-text">AI/GenAI Leader</span>
+            Senior TPM{' '}
+            <span className="text-primary-400">|</span>{' '}
+            <span className="gradient-text">Solutions Architect</span>{' '}
+            <span className="text-primary-400">|</span>{' '}
+            AI/GenAI Leader
           </h1>
 
           {/* Typing Animation */}
