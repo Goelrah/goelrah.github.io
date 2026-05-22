@@ -1,22 +1,24 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, lazy, Suspense } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
 import Experience from './components/Experience'
-import CaseStudies from './components/CaseStudies'
+import Skills from './components/Skills'
+import Projects from './components/Projects'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
 
+// Lazy load Three.js background — doesn't block content rendering
+const ParticleBackground = lazy(() => import('./components/ParticleBackground'))
+
 function App() {
   const [activeSection, setActiveSection] = useState('top')
 
-  // Intersection Observer for scroll animations and active section tracking
+  // Intersection Observer for active section tracking
   useEffect(() => {
     const sections = document.querySelectorAll('section[id]')
-    const animatedElements = document.querySelectorAll('.animate-on-scroll')
     
-    // Active section observer
     const sectionObserver = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -28,28 +30,13 @@ function App() {
       { threshold: 0.3 }
     )
 
-    // Animation observer
-    const animationObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible')
-          }
-        })
-      },
-      { threshold: 0.1 }
-    )
-
     sections.forEach((section) => sectionObserver.observe(section))
-    animatedElements.forEach((el) => animationObserver.observe(el))
 
     return () => {
       sections.forEach((section) => sectionObserver.unobserve(section))
-      animatedElements.forEach((el) => animationObserver.unobserve(el))
     }
   }, [])
 
-  // Smooth scroll to section
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId)
     if (element) {
@@ -59,9 +46,13 @@ function App() {
 
   return (
     <div className="min-h-screen bg-surface-950 relative">
-      {/* Background Effects */}
-      <div className="fixed inset-0 ai-mesh-bg pointer-events-none" />
-      <div className="fixed inset-0 grid-pattern pointer-events-none" />
+      {/* Three.js Particle Background — lazy loaded, non-blocking */}
+      <Suspense fallback={null}>
+        <ParticleBackground />
+      </Suspense>
+
+      {/* Subtle grid overlay */}
+      <div className="fixed inset-0 grid-pattern pointer-events-none z-[1]" />
       
       {/* Navigation */}
       <Navbar 
@@ -74,7 +65,8 @@ function App() {
         <Hero scrollToSection={scrollToSection} />
         <About />
         <Experience />
-        <CaseStudies />
+        <Skills />
+        <Projects />
         <Contact />
       </main>
       

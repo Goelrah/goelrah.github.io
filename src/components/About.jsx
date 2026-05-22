@@ -1,76 +1,77 @@
-import { MapPin, Award, Users, Briefcase, Bot, Cloud } from 'lucide-react'
+import { Briefcase, Users, Bot, Cloud, Award } from 'lucide-react'
+import { useScrollReveal } from '../utils/motion'
 
 const highlights = [
-  { icon: Briefcase, label: '19+ Years', description: 'Enterprise Experience' },
-  { icon: Users, label: '85+ Teams', description: 'Cloud Portfolio' },
-  { icon: Bot, label: '4,500/day', description: 'AI Auto-Resolved' },
-  { icon: Cloud, label: '$24M', description: 'Cost Savings' },
+  { icon: Briefcase, label: '20 Years', description: 'Enterprise Experience' },
+  { icon: Users, label: '15+', description: 'Global Markets' },
+  { icon: Bot, label: '88%', description: 'AI Resolution Rate' },
+  { icon: Cloud, label: '$165M', description: 'AWS Portfolio' },
 ]
 
 const certifications = [
-  'AWS Certified Solutions Architect',
-  'AWS Certified Cloud Practitioner',
-  'PMP (Project Management Professional)',
-  'Generative AI for Leaders (Vanderbilt)',
-  'PRINCE2 Practitioner',
-  'ITIL v3 Foundation',
+  'PMP - Project Management Professional (PMI, 2025)',
+  'AWS Certified Solutions Architect Associate (AWS, 2024)',
+  'Google Cloud Generative AI Leader Specialization (2025)',
+  'PRINCE2 Practitioner (AXELOS, UK)',
+  'ITIL v3 Foundation (APMG International, UK)',
+]
+
+const awards = [
+  'GenAI Program Lead Award - Amazon (2024)',
+  'Best Performing Engineering Manager - Deloitte (FY2020 & FY2021)',
+  'Best Team Lead - Royal Bank of Scotland (2011, 2012)',
+  'Ovation Excellence Award - Royal Bank of Scotland (2011)',
 ]
 
 export default function About() {
+  const leftRef = useScrollReveal({ x: -30, y: 0 })
+  const rightRef = useScrollReveal({ x: 30, y: 0, delay: 0.15 })
+
   return (
     <section id="about" className="relative">
       <div className="section-container">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Content */}
-          <div className="animate-on-scroll">
+          <div ref={leftRef}>
             <span className="tag mb-4">About Me</span>
             <h2 className="section-title text-white">
-              Engineering Leader with a{' '}
+              Staff TPM with a{' '}
               <span className="gradient-text">Bias for Automation</span>
             </h2>
             
             <div className="space-y-6 text-surface-300 leading-relaxed">
               <p>
-                I'm a <span className="text-white font-medium">Senior Technical Program Manager</span> at 
-                Amazon with 19+ years of experience at Fortune 500 scale. Currently managing a{' '}
-                <span className="text-primary-400 font-medium">$165M AWS cloud portfolio</span> across 
-                85+ engineering teams, delivering production GenAI solutions that resolve{' '}
-                <span className="text-primary-400 font-medium">4,500+ tickets daily</span> without 
-                engineer intervention.
+                Staff Technical Program Manager with <span className="text-white font-medium">20 years</span> owning 
+                portfolio-scale AI and platform programs at VP and C-suite level. At Amazon, built and coached a TPM org 
+                delivering production GenAI systems, <span className="text-primary-400 font-medium">$5.3B capital programs</span>, 
+                and global platform capabilities across a <span className="text-primary-400 font-medium">$165M AWS portfolio</span>.
               </p>
               
               <p>
-                My career spans from building airline booking systems at Kale Consultants to leading 
-                mission-critical banking applications at RBS, scaling a 45-member engineering practice 
-                at Deloitte, and now architecting AI/GenAI solutions at Amazon that deliver{' '}
-                <span className="text-white font-medium">$2.3M annual ROI</span>.
+                Drove production GenAI delivery on <span className="text-white font-medium">AWS Bedrock Agents</span> including 
+                agentic workflow design, RAG architecture, LLM selection, and LLMOps, replacing manual operations with 
+                autonomous systems at scale. Proven track record building scalable technical capabilities across{' '}
+                <span className="text-white font-medium">15+ global markets</span>, running PoC experiments to validate 
+                automation feasibility, and translating engineering complexity into executive-level decisions.
               </p>
               
               <p>
-                I specialize in the intersection of <span className="text-white font-medium">AI/GenAI</span>,{' '}
-                <span className="text-white font-medium">Cloud FinOps</span>, and{' '}
-                <span className="text-white font-medium">large-scale program delivery</span>. Whether it's 
-                building RAG-based automation (AskGenie), scaling AI procurement (Ada), or leading a{' '}
-                <span className="text-primary-400 font-medium">$5.3B payment modernization</span> program—I 
-                focus on measurable outcomes.
-              </p>
-              
-              <p className="text-primary-400 font-medium">
-                My approach: Automate everything possible, measure relentlessly, and always tie 
-                technical decisions to business outcomes.
+                Client-facing delivery experience across <span className="text-white font-medium">10+ Fortune 500 engagements</span> at 
+                Deloitte Digital. From building ML campaign automation to delivering branchless banking platforms, 
+                every engagement focused on measurable business outcomes.
               </p>
             </div>
 
             {/* Brand Adjectives */}
             <div className="flex flex-wrap gap-2 mt-8">
-              {['Solutions Architect', 'AI/GenAI Leader', 'Cloud FinOps', 'Automation-First', 'AWS Certified', 'Open to Relocation'].map((adj) => (
+              {['AI Program Leadership', 'GenAI Delivery', 'Cloud FinOps', 'Automation-First', 'AWS Certified', 'Global Execution'].map((adj) => (
                 <span key={adj} className="tag">{adj}</span>
               ))}
             </div>
           </div>
 
           {/* Visual Card */}
-          <div className="animate-on-scroll stagger-2">
+          <div ref={rightRef}>
             <div className="glass-card p-8 lg:p-10">
               {/* Profile Header */}
               <div className="flex items-center gap-4 mb-8 pb-8 border-b border-surface-700/50">
@@ -79,8 +80,8 @@ export default function About() {
                 </div>
                 <div>
                   <h3 className="text-xl font-bold text-white">Rahul Goel</h3>
-                  <p className="text-surface-400">Senior TPM | Solutions Architect | AI/GenAI Leader</p>
-                  <p className="text-sm text-primary-400">Open to Relocation</p>
+                  <p className="text-surface-400">Staff TPM | AI Program Portfolio Leadership</p>
+                  <p className="text-sm text-primary-400">Bangalore, India</p>
                 </div>
               </div>
 
@@ -109,12 +110,19 @@ export default function About() {
                 </div>
               </div>
 
-              {/* Quote */}
-              <div className="mt-8 pt-6 border-t border-surface-700/50">
-                <blockquote className="text-surface-300 italic">
-                  "If a human is doing it repeatedly, an AI should be doing it instead. 
-                  My job is to make that transition seamless and measurable."
-                </blockquote>
+              {/* Awards */}
+              <div className="mt-6 pt-6 border-t border-surface-700/50">
+                <h4 className="text-sm font-semibold text-surface-400 uppercase tracking-wider mb-4">
+                  <Award className="w-4 h-4 inline mr-1" />
+                  Awards & Recognition
+                </h4>
+                <div className="flex flex-wrap gap-2">
+                  {awards.map((award) => (
+                    <span key={award} className="text-xs px-2 py-1 bg-primary-500/10 border border-primary-500/20 rounded text-primary-300">
+                      {award}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

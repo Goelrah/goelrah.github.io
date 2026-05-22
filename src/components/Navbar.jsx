@@ -4,7 +4,8 @@ import { Menu, X, Download, Sparkles } from 'lucide-react'
 const navItems = [
   { id: 'about', label: 'About' },
   { id: 'experience', label: 'Experience' },
-  { id: 'case-studies', label: 'Projects' },
+  { id: 'skills', label: 'Skills' },
+  { id: 'projects', label: 'Projects' },
   { id: 'contact', label: 'Contact' },
 ]
 

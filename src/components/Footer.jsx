@@ -3,9 +3,8 @@ import { Sparkles, Linkedin, Github, Mail, ArrowUp } from 'lucide-react'
 const navLinks = [
   { id: 'about', label: 'About' },
   { id: 'experience', label: 'Experience' },
-  { id: 'case-studies', label: 'Case Studies' },
-  { id: 'playbooks', label: 'Playbooks' },
-  { id: 'blog', label: 'Blog' },
+  { id: 'skills', label: 'Skills' },
+  { id: 'projects', label: 'Projects' },
   { id: 'contact', label: 'Contact' },
 ]
 
@@ -28,8 +27,9 @@ export default function Footer({ scrollToSection }) {
               <span className="text-xl font-bold text-white">Rahul Goel</span>
             </button>
             <p className="text-surface-400 mb-6 max-w-md">
-              Principal Technical Program Manager and GenAI Architect transforming 
-              complex cloud portfolios into high-leverage, measurable outcomes.
+              Staff Technical Program Manager with 20 years owning portfolio-scale AI and 
+              platform programs. Driving production GenAI delivery, cloud governance, and 
+              scaled automation across global engineering organizations.
             </p>
             <div className="flex items-center gap-4">
               <a
@@ -41,7 +41,7 @@ export default function Footer({ scrollToSection }) {
                 <Linkedin className="w-5 h-5" />
               </a>
               <a
-                href="https://github.com/Goelrah"
+                href="https://github.com/rahgoel2510"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-lg bg-surface-800 flex items-center justify-center text-surface-400 hover:text-primary-400 hover:bg-surface-700 transition-all"
@@ -49,7 +49,7 @@ export default function Footer({ scrollToSection }) {
                 <Github className="w-5 h-5" />
               </a>
               <a
-                href="mailto:rahul.g2510@outlook.com"
+                href="mailto:Rahul.g2510@outlook.com"
                 className="w-10 h-10 rounded-lg bg-surface-800 flex items-center justify-center text-surface-400 hover:text-primary-400 hover:bg-surface-700 transition-all"
               >
                 <Mail className="w-5 h-5" />
@@ -88,28 +88,32 @@ export default function Footer({ scrollToSection }) {
                 </a>
               </li>
               <li>
-                <button
-                  onClick={() => scrollToSection('playbooks')}
+                <a
+                  href="https://www.linkedin.com/in/goelrahul25"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-surface-400 hover:text-primary-400 transition-colors"
                 >
-                  GenAI Playbooks
-                </button>
+                  LinkedIn Profile
+                </a>
               </li>
               <li>
-                <button
-                  onClick={() => scrollToSection('case-studies')}
+                <a
+                  href="https://github.com/rahgoel2510"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="text-surface-400 hover:text-primary-400 transition-colors"
                 >
-                  Case Studies
-                </button>
+                  GitHub Repositories
+                </a>
               </li>
               <li>
-                <button
-                  onClick={() => scrollToSection('blog')}
+                <a
+                  href="mailto:Rahul.g2510@outlook.com"
                   className="text-surface-400 hover:text-primary-400 transition-colors"
                 >
-                  Blog
-                </button>
+                  Email Me
+                </a>
               </li>
             </ul>
           </div>
