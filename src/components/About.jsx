@@ -1,5 +1,7 @@
-import { Briefcase, Users, Bot, Cloud, Award } from 'lucide-react'
+import { Briefcase, Users, Bot, Cloud } from 'lucide-react'
 import { useScrollReveal } from '../utils/motion'
+import { useAdmin } from '../context/AdminContext'
+import EditableText from './admin/EditableText'
 
 const highlights = [
   { icon: Briefcase, label: '20 Years', description: 'Enterprise Experience' },
@@ -8,24 +10,10 @@ const highlights = [
   { icon: Cloud, label: '$165M', description: 'AWS Portfolio' },
 ]
 
-const certifications = [
-  'PMP - Project Management Professional (PMI, 2025)',
-  'AWS Certified Solutions Architect Associate (AWS, 2024)',
-  'Google Cloud Generative AI Leader Specialization (2025)',
-  'PRINCE2 Practitioner (AXELOS, UK)',
-  'ITIL v3 Foundation (APMG International, UK)',
-]
-
-const awards = [
-  'GenAI Program Lead Award - Amazon (2024)',
-  'Best Performing Engineering Manager - Deloitte (FY2020 & FY2021)',
-  'Best Team Lead - Royal Bank of Scotland (2011, 2012)',
-  'Ovation Excellence Award - Royal Bank of Scotland (2011)',
-]
-
 export default function About() {
   const leftRef = useScrollReveal({ x: -30, y: 0 })
   const rightRef = useScrollReveal({ x: 30, y: 0, delay: 0.15 })
+  const { content } = useAdmin()
 
   return (
     <section id="about" className="relative">
@@ -41,24 +29,15 @@ export default function About() {
             
             <div className="space-y-6 text-surface-300 leading-relaxed">
               <p>
-                Staff Technical Program Manager with <span className="text-white font-medium">20 years</span> owning 
-                portfolio-scale AI and platform programs at VP and C-suite level. At Amazon, built and coached a TPM org 
-                delivering production GenAI systems, <span className="text-primary-400 font-medium">$5.3B capital programs</span>, 
-                and global platform capabilities across a <span className="text-primary-400 font-medium">$165M AWS portfolio</span>.
+                <EditableText path="about.paragraph1" value={content.about.paragraph1} as="span" className="text-surface-300" multiline />
               </p>
               
               <p>
-                Drove production GenAI delivery on <span className="text-white font-medium">AWS Bedrock Agents</span> including 
-                agentic workflow design, RAG architecture, LLM selection, and LLMOps, replacing manual operations with 
-                autonomous systems at scale. Proven track record building scalable technical capabilities across{' '}
-                <span className="text-white font-medium">15+ global markets</span>, running PoC experiments to validate 
-                automation feasibility, and translating engineering complexity into executive-level decisions.
+                <EditableText path="about.paragraph2" value={content.about.paragraph2} as="span" className="text-surface-300" multiline />
               </p>
               
               <p>
-                Client-facing delivery experience across <span className="text-white font-medium">10+ Fortune 500 engagements</span> at 
-                Deloitte Digital. From building ML campaign automation to delivering branchless banking platforms, 
-                every engagement focused on measurable business outcomes.
+                <EditableText path="about.paragraph3" value={content.about.paragraph3} as="span" className="text-surface-300" multiline />
               </p>
             </div>
 
@@ -98,32 +77,44 @@ export default function About() {
                 ))}
               </div>
 
-              {/* Certifications */}
+              {/* Awards — infographic style */}
               <div className="pt-6 border-t border-surface-700/50">
-                <h4 className="text-sm font-semibold text-surface-400 uppercase tracking-wider mb-4">Certifications</h4>
-                <div className="flex flex-wrap gap-2">
-                  {certifications.map((cert) => (
-                    <span key={cert} className="text-xs px-2 py-1 bg-surface-800 rounded text-surface-300">
-                      {cert}
-                    </span>
+                <div className="flex items-center gap-2 mb-4">
+                  <span className="text-lg animate-pulse">🏅</span>
+                  <h4 className="text-sm font-bold bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-400 bg-clip-text text-transparent tracking-wide">
+                    Recognized Excellence
+                  </h4>
+                </div>
+                <div className="space-y-3">
+                  {[
+                    { title: 'GenAI Program Lead', org: 'Amazon', year: '2024', color: '#f59e0b', emoji: '🏆', width: '100%' },
+                    { title: 'Best Engineering Manager', org: 'Deloitte', year: 'FY2020 & FY2021', color: '#10b981', emoji: '⭐', width: '90%' },
+                    { title: 'Best Team Lead', org: 'Royal Bank of Scotland', year: '2011, 2012', color: '#6366f1', emoji: '🎯', width: '75%' },
+                    { title: 'Ovation Excellence Award', org: 'Royal Bank of Scotland', year: '2011', color: '#8b5cf6', emoji: '✨', width: '65%' },
+                  ].map((a) => (
+                    <div key={a.title} className="group">
+                      <div className="flex items-center justify-between mb-1">
+                        <div className="flex items-center gap-2">
+                          <span className="text-base">{a.emoji}</span>
+                          <span className="text-xs font-bold text-white">{a.title}</span>
+                        </div>
+                        <span className="text-[10px] font-medium px-2 py-0.5 rounded-full" style={{ backgroundColor: `${a.color}15`, color: a.color }}>
+                          {a.year}
+                        </span>
+                      </div>
+                      <div className="relative h-6 rounded-full bg-surface-800/80 overflow-hidden">
+                        <div
+                          className="absolute inset-y-0 left-0 rounded-full flex items-center pl-3 transition-all duration-500 group-hover:brightness-125"
+                          style={{ width: a.width, background: `linear-gradient(90deg, ${a.color}40, ${a.color}20)`, borderRight: `2px solid ${a.color}` }}
+                        >
+                          <span className="text-[10px] font-semibold text-white/80 truncate">{a.org}</span>
+                        </div>
+                      </div>
+                    </div>
                   ))}
                 </div>
               </div>
 
-              {/* Awards */}
-              <div className="mt-6 pt-6 border-t border-surface-700/50">
-                <h4 className="text-sm font-semibold text-surface-400 uppercase tracking-wider mb-4">
-                  <Award className="w-4 h-4 inline mr-1" />
-                  Awards & Recognition
-                </h4>
-                <div className="flex flex-wrap gap-2">
-                  {awards.map((award) => (
-                    <span key={award} className="text-xs px-2 py-1 bg-primary-500/10 border border-primary-500/20 rounded text-primary-300">
-                      {award}
-                    </span>
-                  ))}
-                </div>
-              </div>
             </div>
           </div>
         </div>

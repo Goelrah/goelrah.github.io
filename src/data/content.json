@@ -1,0 +1,194 @@
+{
+  "hero": {
+    "badge": "Available for Staff TPM & AI Program Leadership roles",
+    "headline": "Staff Technical Program Manager",
+    "subheadline": "AI Program Portfolio Leadership | Scaled Automation Delivery | Global Engineering Execution",
+    "summary": "20 years owning portfolio-scale AI and platform programs at VP and C-suite level. Built production GenAI systems, governed a $165M AWS portfolio, and delivered $5.3B capital programs across 15+ global markets."
+  },
+  "about": {
+    "title": "Staff TPM with a Bias for Automation",
+    "paragraph1": "Staff Technical Program Manager with 20 years owning portfolio-scale AI and platform programs at VP and C-suite level. At Amazon, built and coached a TPM org delivering production GenAI systems, $5.3B capital programs, and global platform capabilities across a $165M AWS portfolio.",
+    "paragraph2": "Drove production GenAI delivery on AWS Bedrock Agents including agentic workflow design, RAG architecture, LLM selection, and LLMOps, replacing manual operations with autonomous systems at scale. Proven track record building scalable technical capabilities across 15+ global markets, running PoC experiments to validate automation feasibility, and translating engineering complexity into executive-level decisions.",
+    "paragraph3": "Client-facing delivery experience across 10+ Fortune 500 engagements at Deloitte Digital. From building ML campaign automation to delivering branchless banking platforms, every engagement focused on measurable business outcomes."
+  },
+  "experience": {
+    "title": "20 Years of Professional Experience",
+    "subtitle": "From airline booking systems at Kale Consultants (2005) to mission-critical banking at RBS, Fortune 500 delivery at Deloitte, and AI program leadership at Amazon — a continuous arc of increasing scope and impact.",
+    "entries": [
+      {
+        "id": "amazon",
+        "company": "Amazon India Development Centre",
+        "role": "Senior Technical Program Manager",
+        "period": "Mar 2022 – Present",
+        "duration": "4+ years",
+        "location": "Bangalore, India",
+        "highlights": [
+          "GenAI and Agentic Platform Delivery: Drove end-to-end delivery of human+machine intelligence programs on AWS Bedrock Agents. AskGenie replaced manual support review workflows with autonomous resolution, achieving 88% autonomous resolution rate and significantly reducing human escalation load at scale. Procurement Advisor automated inventory management across 1,200+ global facilities on $250M+ spend, generating $2.3M annual ROI and 25% reduction in manual effort.",
+          "Cloud Governance: Implemented automated guardrails, rightsizing, and Reserved Instance optimization across $162M AWS portfolio driving $8M annual cloud cost savings. Defined and owned cloud spend KPIs, architectural investment decisions, and FinOps governance framework used by VP-level stakeholders.",
+          "Regulatory and Compliance Execution: Delivered global GDPR compliance across all Tier 1 and Tier 2 services 2 months ahead of deadline. Secured org-wide adoption of Privacy by Design across Amazon's global engineering surface.",
+          "Capital Program Delivery: Directed $5.3B Capital Planning program across 4 cross-functional teams, securing $50M/year in cost avoidance through governance cadences and executive KPI reporting.",
+          "Platform Reliability and Observability: Led cross-org delivery of EagleEye multi-region platform (Python, Lambda, Prometheus, Datadog) across 15+ global markets, delivering a scalable technical capability that improved platform throughput by 20%.",
+          "Engineering Leadership and AI Productivity: Managed and coached a team of 10+ Senior Engineers and TPMs across multiple concurrent programs. Recognized as GenAI Program Lead (2024) and AI Automator Award recipient."
+        ]
+      },
+      {
+        "id": "deloitte",
+        "company": "Deloitte Consulting India Pvt. Ltd.",
+        "role": "Engineering Lead and Delivery Manager",
+        "period": "Nov 2015 – Mar 2022",
+        "duration": "6.5 years",
+        "location": "Gurgaon, India",
+        "highlights": [
+          "People Leadership: Built, managed, and grew 45-member engineering teams across client engagements. Recognized as Best Performing Manager (FY2020 and FY2021).",
+          "Marketing Technology and SaaS Platform Delivery: Designed and delivered HUX, a full-stack Customer Data Platform and CX orchestration solution built on Snowflake, integrating end-to-end data pipelines. Delivered 22% increase in e-commerce sales, 2.5x marketing ROI, 30% targeting precision gain, and 12% churn reduction.",
+          "Java Architecture and SDLC Ownership: Led Java engineering team on Broadcom Customer Service Portal, owning HLD/LLD API architecture, Java microservices, and full SDLC from SOW through production.",
+          "Platform Architecture and Search: Owned catalog taxonomy and Solr full-text search on Scholastic's digital commerce platform. Delivered 35% time-to-market reduction through modular architecture and CI/CD automation.",
+          "Banking Platform on Azure: Led delivery of ING Group's branchless banking platform on Azure (.NET, Java), integrating AI avatar and facial recognition. Delivered 40% operational overhead reduction."
+        ]
+      },
+      {
+        "id": "shell",
+        "company": "Shell Infotech India Pvt. Ltd. (at Deloitte)",
+        "role": "Project Manager",
+        "period": "Mar 2015 – Nov 2015",
+        "duration": "8 months",
+        "location": "India",
+        "highlights": [
+          "Managed project delivery for Deloitte client engagements prior to transitioning into a full-time Deloitte role."
+        ]
+      },
+      {
+        "id": "rbs",
+        "company": "Royal Bank of Scotland Group (now NatWest Group)",
+        "role": "Team Lead",
+        "period": "Jul 2009 – Jul 2014",
+        "duration": "5 years",
+        "location": "India",
+        "highlights": [
+          "Owned and managed a portfolio of 16 mission-critical core banking and back-office applications serving 15M+ retail and commercial banking customers across the UK.",
+          "Drove 22% uptime improvement and 35% MTTR reduction through proactive incident management and platform stabilization.",
+          "Delivered platform migrations $250K under budget, maintaining zero disruption to live banking operations."
+        ]
+      },
+      {
+        "id": "cincom",
+        "company": "Cincom Systems India Pvt. Ltd.",
+        "role": "Sr Member Technical Staff",
+        "period": "Dec 2007 – Jun 2009",
+        "duration": "1.5 years",
+        "location": "India",
+        "highlights": [
+          "Senior technical contributor working on enterprise software systems."
+        ]
+      },
+      {
+        "id": "kale",
+        "company": "Kale Consultants (now Accelya)",
+        "role": "Software Engineer",
+        "period": "2005 – Dec 2007",
+        "duration": "2.5 years",
+        "location": "India",
+        "highlights": [
+          "Built airline booking and reservation systems for BCD Travel and Air India, deployed across 9 countries.",
+          "Developed core modules for airline departure control and passenger service systems used by international carriers."
+        ]
+      }
+    ]
+  },
+  "skills": {
+    "title": "Technical Skill Set",
+    "subtitle": "20 years of accumulated expertise across 80+ technologies and frameworks."
+  },
+  "projects": {
+    "title": "Production Systems & Open Source",
+    "subtitle": "Enterprise AI systems delivering millions in ROI alongside open-source tools for the GenAI community."
+  },
+  "contact": {
+    "title": "Ready to Build Something Great?",
+    "subtitle": "Open to conversations about Staff/Principal TPM roles, GenAI program leadership, and strategic advisory on cloud architecture and AI adoption.",
+    "email": "Rahul.g2510@outlook.com",
+    "linkedin": "https://www.linkedin.com/in/goelrahul25",
+    "github": "https://github.com/rahgoel2510",
+    "location": "Bangalore, India",
+    "availability": "Open to remote opportunities globally"
+  },
+  "certifications": [
+    {
+      "id": "pmp",
+      "name": "PMP",
+      "fullName": "Project Management Professional",
+      "issuer": "PMI",
+      "year": "2025",
+      "expiry": "2028",
+      "status": "obtained",
+      "badgeUrl": "https://images.credly.com/size/340x340/images/731e7ef4-9b0c-4d7b-ab65-23cc699c0aa3/blob",
+      "verifyUrl": "https://www.credly.com/org/project-management-institute/badge/project-management-professional-pmp"
+    },
+    {
+      "id": "aws-sa",
+      "name": "AWS Solutions Architect",
+      "fullName": "AWS Certified Solutions Architect – Associate",
+      "issuer": "Amazon Web Services",
+      "year": "2024",
+      "expiry": "2027",
+      "status": "obtained",
+      "badgeUrl": "https://images.credly.com/size/340x340/images/0e284c3f-5164-4b21-8660-0d84737941bc/image.png",
+      "verifyUrl": "https://www.credly.com/org/amazon-web-services/badge/aws-certified-solutions-architect-associate"
+    },
+    {
+      "id": "google-genai",
+      "name": "Google GenAI Leader",
+      "fullName": "Google Cloud Generative AI Leader Specialization",
+      "issuer": "Google Cloud",
+      "year": "2025",
+      "expiry": null,
+      "status": "obtained",
+      "badgeUrl": "https://images.credly.com/size/340x340/images/3fce2e3c-cda1-4b06-b4e7-0bf085e5e74e/image.png",
+      "verifyUrl": "https://www.cloudskillsboost.google/paths"
+    },
+    {
+      "id": "prince2",
+      "name": "PRINCE2 Practitioner",
+      "fullName": "PRINCE2® Practitioner",
+      "issuer": "AXELOS, UK",
+      "year": "2014",
+      "expiry": null,
+      "status": "obtained",
+      "badgeUrl": "https://images.credly.com/size/340x340/images/bfe8b5f5-4bf6-4fa0-9e81-50e637dd1b8f/image.png",
+      "verifyUrl": "https://www.credly.com/org/peoplecert/badge/prince2-practitioner"
+    },
+    {
+      "id": "itil",
+      "name": "ITIL v3 Foundation",
+      "fullName": "ITIL® Foundation",
+      "issuer": "APMG International, UK",
+      "year": "2010",
+      "expiry": null,
+      "status": "obtained",
+      "badgeUrl": "https://images.credly.com/size/340x340/images/6c9b2a4b-91d5-4093-919a-7eb81cfe74ba/ITIL_Foundation.png",
+      "verifyUrl": "https://www.credly.com/org/peoplecert/badge/itil-foundation"
+    },
+    {
+      "id": "aws-ml",
+      "name": "AWS ML Specialty",
+      "fullName": "AWS Certified Machine Learning – Specialty",
+      "issuer": "Amazon Web Services",
+      "year": "2025",
+      "expiry": null,
+      "status": "pursuing",
+      "badgeUrl": "https://images.credly.com/size/340x340/images/778bde6c-ad1c-4312-ac33-2fa40d50571d/image.png",
+      "verifyUrl": null
+    },
+    {
+      "id": "google-ml",
+      "name": "Google Cloud ML Engineer",
+      "fullName": "Google Cloud Professional Machine Learning Engineer",
+      "issuer": "Google Cloud",
+      "year": "2026",
+      "expiry": null,
+      "status": "pursuing",
+      "badgeUrl": "https://images.credly.com/size/340x340/images/f2f9716d-7be0-47ef-b4ad-c3bf2d6d6da4/image.png",
+      "verifyUrl": null
+    }
+  ]
+}

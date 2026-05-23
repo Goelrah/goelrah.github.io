@@ -8,6 +8,8 @@ import {
   SiJira, SiConfluence, SiArgo, SiSnowflake,
 } from 'react-icons/si'
 import { FaAws, FaDatabase, FaShieldAlt, FaLock, FaProjectDiagram } from 'react-icons/fa'
+import { useAdmin } from '../context/AdminContext'
+import EditableText from './admin/EditableText'
 
 const allSkills = [
   { name: 'AWS Bedrock Agents', icon: FaAws, color: '#FF9900', size: 'lg' },
@@ -99,6 +101,8 @@ const sizeClasses = {
 }
 
 export default function Skills() {
+  const { content } = useAdmin()
+
   return (
     <section id="skills" className="relative">
       <div className="section-container">
@@ -111,10 +115,10 @@ export default function Skills() {
         >
           <span className="tag mb-4">Technical Skills</span>
           <h2 className="section-title text-white">
-            Technical <span className="gradient-text">Skill Set</span>
+            <EditableText path="skills.title" value={content.skills.title} as="span" className="section-title text-white" />
           </h2>
           <p className="section-subtitle mx-auto">
-            20 years of accumulated expertise across 80+ technologies and frameworks.
+            <EditableText path="skills.subtitle" value={content.skills.subtitle} as="span" className="section-subtitle" />
           </p>
         </motion.div>
 

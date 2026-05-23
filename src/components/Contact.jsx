@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion'
 import { Mail, Linkedin, Github, Calendar, Briefcase, MessageSquare, Download, ArrowRight, MapPin, Clock } from 'lucide-react'
+import { useAdmin } from '../context/AdminContext'
+import EditableText from './admin/EditableText'
 
 const workOptions = [
   {
@@ -62,6 +64,7 @@ const itemVariants = {
 }
 
 export default function Contact() {
+  const { content } = useAdmin()
   return (
     <section id="contact" className="relative">
       <div className="section-container">
@@ -75,11 +78,10 @@ export default function Contact() {
         >
           <span className="tag mb-4">Let's Connect</span>
           <h2 className="section-title text-white">
-            Ready to Build <span className="gradient-text">Something Great?</span>
+            <EditableText path="contact.title" value={content.contact.title} as="span" className="section-title text-white" />
           </h2>
           <p className="section-subtitle mx-auto">
-            Open to conversations about Staff/Principal TPM roles, GenAI program leadership, 
-            and strategic advisory on cloud architecture and AI adoption.
+            <EditableText path="contact.subtitle" value={content.contact.subtitle} as="span" className="section-subtitle" multiline />
           </p>
         </motion.div>
 

@@ -1,6 +1,8 @@
 import { useState, useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ArrowRight, Download, ChevronDown, Zap, Cloud, Brain, TrendingUp } from 'lucide-react'
+import { useAdmin } from '../context/AdminContext'
+import EditableText from './admin/EditableText'
 
 const roles = [
   'Staff TPM',
@@ -23,6 +25,7 @@ export default function Hero({ scrollToSection }) {
   const [displayText, setDisplayText] = useState('')
   const [isDeleting, setIsDeleting] = useState(false)
   const heroRef = useRef(null)
+  const { content } = useAdmin()
   const metricsRef = useRef(null)
 
   // GSAP entrance animation on mount
@@ -77,17 +80,17 @@ export default function Hero({ scrollToSection }) {
           {/* Badge */}
           <div className="hero-badge inline-flex items-center gap-2 px-4 py-2 bg-primary-500/10 border border-primary-500/20 rounded-full mb-8">
             <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-            <span className="text-sm text-surface-300">Available for Staff TPM & AI Program Leadership roles</span>
+            <EditableText path="hero.badge" value={content.hero.badge} className="text-sm text-surface-300" />
           </div>
 
           {/* Main Headline */}
           <h1 className="hero-title text-3xl sm:text-4xl lg:text-6xl font-bold text-white mb-4 leading-tight">
-            Staff Technical Program Manager
+            <EditableText path="hero.headline" value={content.hero.headline} as="span" className="text-3xl sm:text-4xl lg:text-6xl font-bold text-white" />
           </h1>
 
           {/* Sub-headline */}
           <h2 className="hero-subtitle text-lg sm:text-xl lg:text-2xl text-primary-400 font-medium mb-4">
-            AI Program Portfolio Leadership | Scaled Automation Delivery | Global Engineering Execution
+            <EditableText path="hero.subheadline" value={content.hero.subheadline} as="span" className="text-lg sm:text-xl lg:text-2xl text-primary-400 font-medium" />
           </h2>
 
           {/* Typing Animation */}
@@ -103,8 +106,7 @@ export default function Hero({ scrollToSection }) {
 
           {/* Supporting Text */}
           <p className="hero-summary text-base sm:text-lg text-surface-400 max-w-3xl mx-auto mb-12 leading-relaxed">
-            20 years owning portfolio-scale AI and platform programs at VP and C-suite level. 
-            Built production GenAI systems, governed a $165M AWS portfolio, and delivered $5.3B capital programs across 15+ global markets.
+            <EditableText path="hero.summary" value={content.hero.summary} as="span" className="text-base sm:text-lg text-surface-400" multiline />
           </p>
 
           {/* CTA Buttons */}
