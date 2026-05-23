@@ -29,8 +29,9 @@ export default function Navbar({ activeSection, scrollToSection }) {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Name */}
-          <button onClick={() => handleNavClick('top')} className="text-lg font-bold text-white hover:text-primary-400 transition-colors">
-            R.Goel
+          <button onClick={() => handleNavClick('top')} className="flex items-center gap-2 text-lg font-bold text-white hover:text-primary-400 transition-colors">
+            <img src="/rahul-goel.jpg" alt="" className="w-8 h-8 rounded-full object-cover object-[center_20%]" />
+            Rahul Goel
           </button>
 
           {/* Desktop nav */}
