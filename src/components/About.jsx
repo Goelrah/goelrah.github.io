@@ -1,122 +1,88 @@
-import { Briefcase, Users, Bot, Cloud } from 'lucide-react'
-import { useScrollReveal } from '../utils/motion'
-import { useAdmin } from '../context/AdminContext'
-import EditableText from './admin/EditableText'
+import { motion } from 'framer-motion'
 
-const highlights = [
-  { icon: Briefcase, label: '20 Years', description: 'Enterprise Experience' },
-  { icon: Users, label: '15+', description: 'Global Markets' },
-  { icon: Bot, label: '88%', description: 'AI Resolution Rate' },
-  { icon: Cloud, label: '$165M', description: 'AWS Portfolio' },
-]
+const fadeUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }
 
 export default function About() {
-  const leftRef = useScrollReveal({ x: -30, y: 0 })
-  const rightRef = useScrollReveal({ x: 30, y: 0, delay: 0.15 })
-  const { content } = useAdmin()
-
   return (
-    <section id="about" className="relative">
-      <div className="section-container">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Content */}
-          <div ref={leftRef}>
-            <span className="tag mb-4">About Me</span>
-            <h2 className="section-title text-white">
-              Staff TPM with a{' '}
-              <span className="gradient-text">Bias for Automation</span>
-            </h2>
-            
-            <div className="space-y-6 text-surface-300 leading-relaxed">
+    <section id="about" className="relative py-24 lg:py-32">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24">
+          {/* Left */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-80px' }}
+            variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
+          >
+            <motion.span variants={fadeUp} transition={{ duration: 0.5 }} className="text-sm text-surface-500 font-mono tracking-wider block">
+              01 // About
+            </motion.span>
+            <motion.h2 variants={fadeUp} transition={{ duration: 0.6 }} className="text-3xl lg:text-4xl font-bold mt-4 mb-8 leading-tight">
+              I help organizations deliver AI programs that <span className="text-primary-400">actually ship.</span>
+            </motion.h2>
+            <motion.div variants={fadeUp} transition={{ duration: 0.6 }} className="space-y-6 text-surface-400 leading-relaxed">
               <p>
-                <EditableText path="about.paragraph1" value={content.about.paragraph1} as="span" className="text-surface-300" multiline />
+                20 years delivering portfolio-scale programs where the stakes are high and the margin 
+                for error is low. Production GenAI systems that resolve 88% of tickets autonomously. 
+                Cloud governance that saves $8M annually. Capital programs worth $5.3B.
               </p>
-              
               <p>
-                <EditableText path="about.paragraph2" value={content.about.paragraph2} as="span" className="text-surface-300" multiline />
+                I've built TPM orgs, coached engineering teams across 15+ global markets, and translated 
+                technical complexity into executive decisions at Amazon, Deloitte, and Fortune 500 clients.
               </p>
-              
               <p>
-                <EditableText path="about.paragraph3" value={content.about.paragraph3} as="span" className="text-surface-300" multiline />
+                Whether it's agentic workflow design, RAG architecture, cloud FinOps governance, or 
+                scaling engineering teams — I specialize in the gap between "promising PoC" and 
+                "production system generating ROI."
               </p>
-            </div>
+            </motion.div>
+          </motion.div>
 
-            {/* Brand Adjectives */}
-            <div className="flex flex-wrap gap-2 mt-8">
-              {['AI Program Leadership', 'GenAI Delivery', 'Cloud FinOps', 'Automation-First', 'AWS Certified', 'Global Execution'].map((adj) => (
-                <span key={adj} className="tag">{adj}</span>
-              ))}
-            </div>
-          </div>
-
-          {/* Visual Card */}
-          <div ref={rightRef}>
-            <div className="glass-card p-8 lg:p-10">
-              {/* Profile Header */}
-              <div className="flex items-center gap-4 mb-8 pb-8 border-b border-surface-700/50">
-                <div className="w-20 h-20 rounded-2xl bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center text-3xl font-bold text-white">
-                  RG
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-white">Rahul Goel</h3>
-                  <p className="text-surface-400">Staff TPM | AI Program Portfolio Leadership</p>
-                  <p className="text-sm text-primary-400">Bangalore, India</p>
-                </div>
-              </div>
-
-              {/* Highlights Grid */}
-              <div className="grid grid-cols-2 gap-6 mb-8">
-                {highlights.map((item) => (
-                  <div key={item.label} className="text-center">
-                    <div className="w-12 h-12 rounded-xl bg-primary-500/10 flex items-center justify-center mx-auto mb-3">
-                      <item.icon className="w-6 h-6 text-primary-400" />
-                    </div>
-                    <div className="text-lg font-bold text-white">{item.label}</div>
-                    <div className="text-sm text-surface-400">{item.description}</div>
+          {/* Right — credentials */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: '-80px' }}
+            variants={{ visible: { transition: { staggerChildren: 0.08, delayChildren: 0.2 } } }}
+            className="space-y-8"
+          >
+            {/* Certifications */}
+            <motion.div variants={fadeUp} transition={{ duration: 0.5 }}>
+              <h3 className="text-sm text-surface-500 font-mono tracking-wider mb-4">Certifications</h3>
+              <div className="space-y-0">
+                {[
+                  { name: 'PMP — Project Management Professional', org: 'PMI, 2025' },
+                  { name: 'AWS Certified Solutions Architect', org: 'AWS, 2024' },
+                  { name: 'Google Cloud GenAI Leader', org: 'Google, 2025' },
+                  { name: 'PRINCE2 Practitioner', org: 'AXELOS, UK' },
+                  { name: 'ITIL v3 Foundation', org: 'APMG International' },
+                ].map((c) => (
+                  <div key={c.name} className="flex items-center justify-between py-3 border-b border-surface-800/50 group hover:border-primary-500/30 transition-colors">
+                    <span className="text-sm text-white font-medium group-hover:text-primary-300 transition-colors">{c.name}</span>
+                    <span className="text-xs text-surface-500 flex-shrink-0 ml-4">{c.org}</span>
                   </div>
                 ))}
               </div>
+            </motion.div>
 
-              {/* Awards — infographic style */}
-              <div className="pt-6 border-t border-surface-700/50">
-                <div className="flex items-center gap-2 mb-4">
-                  <span className="text-lg animate-pulse">🏅</span>
-                  <h4 className="text-sm font-bold bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-400 bg-clip-text text-transparent tracking-wide">
-                    Recognized Excellence
-                  </h4>
-                </div>
-                <div className="space-y-3">
-                  {[
-                    { title: 'GenAI Program Lead', org: 'Amazon', year: '2024', color: '#f59e0b', emoji: '🏆', width: '100%' },
-                    { title: 'Best Engineering Manager', org: 'Deloitte', year: 'FY2020 & FY2021', color: '#10b981', emoji: '⭐', width: '90%' },
-                    { title: 'Best Team Lead', org: 'Royal Bank of Scotland', year: '2011, 2012', color: '#6366f1', emoji: '🎯', width: '75%' },
-                    { title: 'Ovation Excellence Award', org: 'Royal Bank of Scotland', year: '2011', color: '#8b5cf6', emoji: '✨', width: '65%' },
-                  ].map((a) => (
-                    <div key={a.title} className="group">
-                      <div className="flex items-center justify-between mb-1">
-                        <div className="flex items-center gap-2">
-                          <span className="text-base">{a.emoji}</span>
-                          <span className="text-xs font-bold text-white">{a.title}</span>
-                        </div>
-                        <span className="text-[10px] font-medium px-2 py-0.5 rounded-full" style={{ backgroundColor: `${a.color}15`, color: a.color }}>
-                          {a.year}
-                        </span>
-                      </div>
-                      <div className="relative h-6 rounded-full bg-surface-800/80 overflow-hidden">
-                        <div
-                          className="absolute inset-y-0 left-0 rounded-full flex items-center pl-3 transition-all duration-500 group-hover:brightness-125"
-                          style={{ width: a.width, background: `linear-gradient(90deg, ${a.color}40, ${a.color}20)`, borderRight: `2px solid ${a.color}` }}
-                        >
-                          <span className="text-[10px] font-semibold text-white/80 truncate">{a.org}</span>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
+            {/* Awards */}
+            <motion.div variants={fadeUp} transition={{ duration: 0.5 }}>
+              <h3 className="text-sm text-surface-500 font-mono tracking-wider mb-4">Recognition</h3>
+              <div className="space-y-0">
+                {[
+                  { name: 'GenAI Program Lead Award', org: 'Amazon, 2024' },
+                  { name: 'Best Performing Engineering Manager', org: 'Deloitte, FY2020 & FY2021' },
+                  { name: 'Best Team Lead', org: 'RBS, 2011 & 2012' },
+                  { name: 'Ovation Excellence Award', org: 'RBS, 2011' },
+                ].map((a) => (
+                  <div key={a.name} className="flex items-center justify-between py-3 border-b border-surface-800/50 group hover:border-primary-500/30 transition-colors">
+                    <span className="text-sm text-white font-medium group-hover:text-primary-300 transition-colors">{a.name}</span>
+                    <span className="text-xs text-surface-500 flex-shrink-0 ml-4">{a.org}</span>
+                  </div>
+                ))}
               </div>
-
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </div>
     </section>

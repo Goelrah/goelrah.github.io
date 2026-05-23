@@ -1,12 +1,11 @@
 import { useState, useEffect } from 'react'
-import { Menu, X, Download, Sparkles } from 'lucide-react'
+import { Menu, X, Download } from 'lucide-react'
 
 const navItems = [
   { id: 'about', label: 'About' },
-  { id: 'experience', label: 'Experience' },
+  { id: 'experience', label: 'Career' },
   { id: 'skills', label: 'Skills' },
-  { id: 'certifications', label: 'Certifications' },
-  { id: 'projects', label: 'Projects' },
+  { id: 'projects', label: 'Work' },
   { id: 'contact', label: 'Contact' },
 ]
 
@@ -15,51 +14,35 @@ export default function Navbar({ activeSection, scrollToSection }) {
   const [isScrolled, setIsScrolled] = useState(false)
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-    }
+    const handleScroll = () => setIsScrolled(window.scrollY > 50)
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const handleNavClick = (sectionId) => {
-    scrollToSection(sectionId)
+  const handleNavClick = (id) => {
+    scrollToSection(id)
     setIsOpen(false)
   }
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-surface-950/80 backdrop-blur-xl border-b border-surface-800/50'
-          : 'bg-transparent'
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-surface-950/90 backdrop-blur-xl border-b border-surface-800/50' : ''}`}>
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
-          {/* Logo */}
-          <button
-            onClick={() => handleNavClick('top')}
-            className="flex items-center gap-2 group"
-          >
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center group-hover:scale-110 transition-transform">
-              <Sparkles className="w-5 h-5 text-white" />
-            </div>
-            <span className="text-xl font-bold text-white hidden sm:block">
-              Rahul Goel
-            </span>
+          {/* Name */}
+          <button onClick={() => handleNavClick('top')} className="text-lg font-bold text-white hover:text-primary-400 transition-colors">
+            R.Goel
           </button>
 
-          {/* Desktop Navigation */}
+          {/* Desktop nav */}
           <div className="hidden lg:flex items-center gap-1">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => handleNavClick(item.id)}
-                className={`px-4 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${
+                className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${
                   activeSection === item.id
-                    ? 'text-primary-400 bg-primary-500/10'
-                    : 'text-surface-300 hover:text-white hover:bg-surface-800/50'
+                    ? 'text-white bg-surface-800/50'
+                    : 'text-surface-400 hover:text-white'
                 }`}
               >
                 {item.label}
@@ -67,72 +50,37 @@ export default function Navbar({ activeSection, scrollToSection }) {
             ))}
           </div>
 
-          {/* Desktop CTA */}
+          {/* CTA */}
           <div className="hidden lg:flex items-center gap-3">
-            <a
-              href="/assets/RahulGoel_Resume.pdf"
-              download
-              className="btn-secondary text-sm"
-            >
-              <Download className="w-4 h-4" />
-              Resume
-            </a>
             <button
               onClick={() => handleNavClick('contact')}
-              className="btn-primary text-sm"
+              className="px-4 py-2 text-sm font-medium bg-white text-surface-950 rounded-lg hover:bg-surface-200 transition-colors"
             >
-              Work With Me
+              Get in touch
             </button>
           </div>
 
-          {/* Mobile Menu Button */}
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="lg:hidden p-2 text-surface-300 hover:text-white"
-          >
+          {/* Mobile menu */}
+          <button onClick={() => setIsOpen(!isOpen)} className="lg:hidden text-surface-300">
             {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
-      <div
-        className={`lg:hidden absolute top-full left-0 right-0 bg-surface-950/95 backdrop-blur-xl border-b border-surface-800/50 transition-all duration-300 ${
-          isOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
-        }`}
-      >
-        <div className="px-4 py-6 space-y-2">
+      {/* Mobile dropdown */}
+      {isOpen && (
+        <div className="lg:hidden bg-surface-950/95 backdrop-blur-xl border-b border-surface-800/50 px-6 py-4 space-y-2">
           {navItems.map((item) => (
             <button
               key={item.id}
               onClick={() => handleNavClick(item.id)}
-              className={`block w-full text-left px-4 py-3 rounded-xl transition-all duration-300 ${
-                activeSection === item.id
-                  ? 'text-primary-400 bg-primary-500/10'
-                  : 'text-surface-300 hover:text-white hover:bg-surface-800/50'
-              }`}
+              className="block w-full text-left px-4 py-3 text-surface-300 hover:text-white rounded-lg hover:bg-surface-800/50 transition-colors"
             >
               {item.label}
             </button>
           ))}
-          <div className="pt-4 flex flex-col gap-3">
-            <a
-              href="/assets/RahulGoel_Resume.pdf"
-              download
-              className="btn-secondary justify-center"
-            >
-              <Download className="w-4 h-4" />
-              Download Resume
-            </a>
-            <button
-              onClick={() => handleNavClick('contact')}
-              className="btn-primary justify-center"
-            >
-              Work With Me
-            </button>
-          </div>
         </div>
-      </div>
+      )}
     </nav>
   )
 }
