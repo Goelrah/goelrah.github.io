@@ -1,150 +1,124 @@
-import { useRef, useState, useMemo } from 'react'
-import { Canvas, useFrame } from '@react-three/fiber'
-import { Text } from '@react-three/drei'
 import { motion } from 'framer-motion'
-import * as THREE from 'three'
+import { Brain, Cloud, BarChart3, Shield, Code, Users } from 'lucide-react'
 
-const skills = [
-  { name: 'AWS Bedrock', size: 1.4, color: '#FF9900' },
-  { name: 'RAG', size: 1.6, color: '#a855f7' },
-  { name: 'GenAI', size: 1.8, color: '#8b5cf6' },
-  { name: 'LangChain', size: 1.0, color: '#1a7f64' },
-  { name: 'Kubernetes', size: 1.3, color: '#326CE5' },
-  { name: 'Docker', size: 1.2, color: '#2496ED' },
-  { name: 'Terraform', size: 1.1, color: '#7B42BC' },
-  { name: 'Python', size: 1.5, color: '#3776AB' },
-  { name: 'LLMOps', size: 1.3, color: '#c084fc' },
-  { name: 'AWS', size: 1.7, color: '#FF9900' },
-  { name: 'Microservices', size: 1.1, color: '#10b981' },
-  { name: 'Datadog', size: 0.9, color: '#632CA6' },
-  { name: 'Prometheus', size: 0.9, color: '#E6522C' },
-  { name: 'Agentic AI', size: 1.4, color: '#7c3aed' },
-  { name: 'Java', size: 1.2, color: '#ED8B00' },
-  { name: 'Node.js', size: 1.0, color: '#339933' },
-  { name: 'ReactJS', size: 1.1, color: '#61DAFB' },
-  { name: 'Snowflake', size: 1.0, color: '#29B5E8' },
-  { name: 'PostgreSQL', size: 0.9, color: '#4169E1' },
-  { name: 'MongoDB', size: 0.9, color: '#47A248' },
-  { name: 'FinOps', size: 1.2, color: '#22c55e' },
-  { name: 'CI/CD', size: 1.0, color: '#3b82f6' },
-  { name: 'Prompt Engineering', size: 1.1, color: '#d946ef' },
-  { name: 'Spring', size: 0.9, color: '#6DB33F' },
-  { name: 'DynamoDB', size: 0.9, color: '#4053D6' },
-  { name: 'Lambda', size: 1.0, color: '#FF9900' },
-  { name: 'EKS', size: 0.8, color: '#FF9900' },
-  { name: 'Serverless', size: 1.0, color: '#FD5750' },
-  { name: 'ArgoCD', size: 0.8, color: '#EF7B4D' },
-  { name: 'Jenkins', size: 0.8, color: '#D24939' },
-  { name: 'GCP', size: 1.0, color: '#4285F4' },
-  { name: 'Azure', size: 1.0, color: '#0078D4' },
-  { name: 'Agile', size: 0.9, color: '#0ea5e9' },
-  { name: 'SAFe', size: 0.8, color: '#1e40af' },
-  { name: 'Elasticsearch', size: 0.9, color: '#005571' },
-  { name: 'BigQuery', size: 0.8, color: '#669DF6' },
-  { name: 'Multi-Agent', size: 1.1, color: '#7c3aed' },
-  { name: 'Bedrock Agents', size: 1.2, color: '#FF9900' },
-  { name: 'OpenAI', size: 1.0, color: '#412991' },
-  { name: 'Claude', size: 1.0, color: '#D4A574' },
+const fadeUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }
+
+const expertAreas = [
+  {
+    icon: Brain,
+    title: 'AI & GenAI Strategy',
+    color: '#7c3aed',
+    bg: 'bg-violet-50',
+    border: 'border-violet-200',
+    description: 'From LLM selection to production deployment. I design and ship agentic systems that replace manual operations at scale.',
+    skills: ['AWS Bedrock Agents', 'RAG Architecture', 'LLMOps', 'Agentic Workflows', 'LangChain', 'Prompt Engineering', 'Multi-Agent Orchestration', 'LLM Evaluation'],
+  },
+  {
+    icon: Cloud,
+    title: 'Cloud & FinOps',
+    color: '#2563eb',
+    bg: 'bg-blue-50',
+    border: 'border-blue-200',
+    description: 'I make $100M+ cloud portfolios predictable. Automated guardrails, governance frameworks, and executive-level cost visibility.',
+    skills: ['AWS (Solutions Architect)', 'Azure', 'GCP', 'Terraform', 'Kubernetes', 'Docker', 'Serverless', 'FinOps Governance', 'Cost Optimization'],
+  },
+  {
+    icon: Users,
+    title: 'Program & Delivery Leadership',
+    color: '#059669',
+    bg: 'bg-emerald-50',
+    border: 'border-emerald-200',
+    description: 'I build TPM orgs, establish delivery cadences, and align cross-functional teams around shared outcomes at VP/C-suite level.',
+    skills: ['Agile / SAFe', 'OKR Planning', 'Stakeholder Management', 'Executive Communication', 'PoC Experimentation', 'Roadmap Development', 'Risk Management'],
+  },
+  {
+    icon: BarChart3,
+    title: 'Data & Analytics',
+    color: '#0891b2',
+    bg: 'bg-cyan-50',
+    border: 'border-cyan-200',
+    description: 'End-to-end data platforms — from ingestion and modeling to ML-driven insights and automated decision systems.',
+    skills: ['Snowflake', 'PostgreSQL', 'MongoDB', 'Elasticsearch', 'Apache Spark', 'BigQuery', 'ETL Pipelines', 'Data Governance'],
+  },
+  {
+    icon: Code,
+    title: 'Engineering & Architecture',
+    color: '#dc2626',
+    bg: 'bg-red-50',
+    border: 'border-red-200',
+    description: 'I design systems that scale. Microservices, event-driven architecture, and production-grade platforms across 15+ global markets.',
+    skills: ['Java / Spring', 'Python', 'Node.js', 'ReactJS', 'Microservices', 'Event-Driven', 'REST APIs', 'CI/CD', 'GitHub Actions', 'ArgoCD'],
+  },
+  {
+    icon: Shield,
+    title: 'Security & Compliance',
+    color: '#7c3aed',
+    bg: 'bg-purple-50',
+    border: 'border-purple-200',
+    description: 'GDPR, Privacy by Design, and Zero-Trust — delivered 2 months ahead of deadline across all Tier 1 services at Amazon.',
+    skills: ['GDPR', 'Privacy by Design', 'SOC2', 'OAuth 2.0', 'Zero-Trust', 'IAM Frameworks', 'Data Governance', 'OWASP'],
+  },
 ]
-
-// Distribute skills in a sphere
-function generatePositions(count) {
-  const positions = []
-  const phi = (1 + Math.sqrt(5)) / 2 // golden ratio
-  for (let i = 0; i < count; i++) {
-    const y = 1 - (2 * i) / (count - 1)
-    const radius = Math.sqrt(1 - y * y)
-    const theta = 2 * Math.PI * i / phi
-    positions.push([
-      radius * Math.cos(theta) * 4,
-      y * 3,
-      radius * Math.sin(theta) * 2.5,
-    ])
-  }
-  return positions
-}
-
-function SkillWord({ skill, position, onHover, isHovered }) {
-  const meshRef = useRef()
-  const scale = isHovered ? skill.size * 1.8 : skill.size
-
-  useFrame(() => {
-    if (meshRef.current) {
-      meshRef.current.scale.lerp(new THREE.Vector3(scale, scale, scale), 0.1)
-    }
-  })
-
-  return (
-    <Text
-      ref={meshRef}
-      position={position}
-      fontSize={0.3}
-      color={skill.color}
-      anchorX="center"
-      anchorY="middle"
-      onPointerEnter={() => onHover(skill.name)}
-      onPointerLeave={() => onHover(null)}
-      outlineWidth={isHovered ? 0.02 : 0}
-      outlineColor={skill.color}
-      fillOpacity={isHovered ? 1 : 0.8}
-    >
-      {skill.name}
-    </Text>
-  )
-}
-
-function WordCloud() {
-  const groupRef = useRef()
-  const [hovered, setHovered] = useState(null)
-
-  const positions = useMemo(() => generatePositions(skills.length), [])
-
-  useFrame((state) => {
-    if (groupRef.current) {
-      // No rotation — static cloud
-    }
-  })
-
-  return (
-    <group ref={groupRef}>
-      {skills.map((skill, i) => (
-        <SkillWord
-          key={skill.name}
-          skill={skill}
-          position={positions[i]}
-          onHover={setHovered}
-          isHovered={hovered === skill.name}
-        />
-      ))}
-    </group>
-  )
-}
 
 export default function Skills() {
   return (
-    <section id="skills" className="relative py-24 lg:py-32 bg-surface-900/20">
+    <section id="skills" className="relative py-24 lg:py-32 bg-surface-100/50">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial="hidden"
+          whileInView="visible"
           viewport={{ once: true, margin: '-80px' }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-8"
+          variants={{ visible: { transition: { staggerChildren: 0.08 } } }}
         >
-          <span className="text-sm text-surface-500 font-mono tracking-wider">03 // Expertise</span>
-          <h2 className="text-3xl lg:text-4xl font-bold mt-4 leading-tight">
-            Technical <span className="text-primary-400">arsenal.</span>
-          </h2>
-          <p className="text-surface-400 mt-3">80+ technologies. Hover to magnify. The cloud rotates — explore it.</p>
-        </motion.div>
+          <motion.div variants={fadeUp} transition={{ duration: 0.5 }} className="mb-14 max-w-2xl">
+            <span className="text-sm text-surface-500 font-mono tracking-wider">// Areas of Expertise</span>
+            <h2 className="text-3xl lg:text-4xl font-bold mt-4 leading-tight text-surface-900">
+              Deep expertise where it <span className="text-primary-600">matters most.</span>
+            </h2>
+            <p className="text-surface-600 mt-3">
+              Not a generalist. I go deep in the areas that drive the most business value — AI delivery, 
+              cloud economics, and engineering leadership at scale.
+            </p>
+          </motion.div>
 
-        {/* 3D Word Cloud */}
-        <div className="w-full h-[400px] lg:h-[550px] rounded-2xl border border-surface-800/30 bg-surface-950/50 overflow-hidden cursor-grab active:cursor-grabbing">
-          <Canvas camera={{ position: [0, 0, 8], fov: 50 }} dpr={[1, 2]} gl={{ antialias: true, alpha: true }}>
-            <ambientLight intensity={0.5} />
-            <WordCloud />
-          </Canvas>
-        </div>
+          <motion.div
+            variants={{ visible: { transition: { staggerChildren: 0.08 } } }}
+            className="grid md:grid-cols-2 lg:grid-cols-3 gap-5"
+          >
+            {expertAreas.map((area) => (
+              <motion.div
+                key={area.title}
+                variants={fadeUp}
+                transition={{ duration: 0.5 }}
+                whileHover={{ y: -3, transition: { duration: 0.2 } }}
+                className="p-6 rounded-2xl border border-surface-200 bg-white hover:shadow-lg hover:border-primary-200 transition-all group"
+              >
+                {/* Icon */}
+                <div className={`w-11 h-11 rounded-xl ${area.bg} border ${area.border} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+                  <area.icon className="w-5 h-5" style={{ color: area.color }} />
+                </div>
+
+                {/* Title */}
+                <h3 className="text-base font-bold text-surface-900 mb-2">{area.title}</h3>
+
+                {/* Description */}
+                <p className="text-sm text-surface-600 leading-relaxed mb-4">{area.description}</p>
+
+                {/* Skills tags */}
+                <div className="flex flex-wrap gap-1.5">
+                  {area.skills.map((skill) => (
+                    <span
+                      key={skill}
+                      className="text-[11px] font-medium px-2.5 py-1 rounded-full bg-surface-50 text-surface-600 border border-surface-200 hover:border-primary-300 hover:text-primary-700 hover:bg-primary-50 transition-colors"
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+        </motion.div>
       </div>
     </section>
   )

@@ -1,4 +1,4 @@
-import { useState, useEffect, lazy, Suspense } from 'react'
+import { useState, useEffect } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import ClientLogos from './components/ClientLogos'
@@ -6,13 +6,11 @@ import Services from './components/Services'
 import About from './components/About'
 import Experience from './components/Experience'
 import Skills from './components/Skills'
-import Testimonials from './components/Testimonials'
+import ThoughtLeadership from './components/ThoughtLeadership'
 import Projects from './components/Projects'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
-
-const ParticleBackground = lazy(() => import('./components/ParticleBackground'))
 
 function App() {
   const [activeSection, setActiveSection] = useState('top')
@@ -36,21 +34,20 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-surface-950 text-white relative">
-      <Suspense fallback={null}>
-        <ParticleBackground />
-      </Suspense>
+    <div className="min-h-screen bg-surface-50 text-surface-900 relative">
+      {/* Subtle background */}
+      <div className="fixed inset-0 bg-gradient-to-br from-surface-50 via-white to-primary-50/20 pointer-events-none" />
 
       <Navbar activeSection={activeSection} scrollToSection={scrollToSection} />
       <main className="relative z-10">
         <Hero scrollToSection={scrollToSection} />
         <ClientLogos />
         <Services />
-        <About />
-        <Experience />
-        <Skills />
-        <Testimonials />
         <Projects />
+        <Experience />
+        <About />
+        <Skills />
+        <ThoughtLeadership />
         <Contact />
       </main>
       <Footer scrollToSection={scrollToSection} />

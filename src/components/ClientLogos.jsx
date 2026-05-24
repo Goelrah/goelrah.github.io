@@ -1,48 +1,43 @@
 import { motion } from 'framer-motion'
 
-const fadeUp = { hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }
-
 const clients = [
-  { name: 'Amazon', color: '#FF9900' },
-  { name: 'Deloitte', color: '#86BC25' },
-  { name: 'Broadcom', color: '#CC092F' },
-  { name: 'Scholastic', color: '#E31837' },
-  { name: 'ING Group', color: '#FF6200' },
-  { name: 'NatWest', color: '#42145F' },
-  { name: 'Adobe', color: '#FF0000' },
-  { name: 'Shell', color: '#FFD500' },
+  { name: 'Amazon', logo: '/logos/amazon.png' },
+  { name: 'Deloitte', logo: '/logos/deloitte.png' },
+  { name: 'Broadcom', logo: '/logos/broadcom.png' },
+  { name: 'Scholastic', logo: '/logos/scholashtic.png' },
+  { name: 'NatWest', logo: '/logos/rbs.png' },
+  { name: 'Cincom', logo: '/logos/cincom.png' },
+  { name: 'Kale / Accelya', logo: '/logos/kale.png' },
 ]
+
+const marqueeItems = [...clients, ...clients]
 
 export default function ClientLogos() {
   return (
-    <section className="relative py-16 border-y border-surface-800/30">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+    <section className="relative py-10 border-y border-surface-200 overflow-hidden">
+      <p className="text-[11px] text-surface-400 font-mono tracking-widest text-center uppercase mb-6">
+        Trusted by teams at
+      </p>
+
+      <div className="relative">
+        {/* Fade edges */}
+        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-surface-50 to-transparent z-10 pointer-events-none" />
+        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-surface-50 to-transparent z-10 pointer-events-none" />
+
+        {/* Scrolling marquee */}
         <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-50px' }}
-          variants={{ visible: { transition: { staggerChildren: 0.05 } } }}
+          className="flex items-center gap-16 whitespace-nowrap"
+          animate={{ x: ['0%', '-50%'] }}
+          transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
         >
-          <motion.p variants={fadeUp} transition={{ duration: 0.4 }} className="text-xs text-surface-500 font-mono tracking-wider text-center mb-8 uppercase">
-            Trusted by teams at
-          </motion.p>
-          <motion.div
-            variants={{ visible: { transition: { staggerChildren: 0.06 } } }}
-            className="flex flex-wrap justify-center items-center gap-8 lg:gap-12"
-          >
-            {clients.map((client) => (
-              <motion.div
-                key={client.name}
-                variants={fadeUp}
-                transition={{ duration: 0.4 }}
-                whileHover={{ scale: 1.1, transition: { duration: 0.2 } }}
-                className="text-lg lg:text-xl font-bold tracking-tight opacity-40 hover:opacity-90 transition-opacity cursor-default"
-                style={{ color: client.color }}
-              >
-                {client.name}
-              </motion.div>
-            ))}
-          </motion.div>
+          {marqueeItems.map((client, i) => (
+            <img
+              key={`${client.name}-${i}`}
+              src={client.logo}
+              alt={client.name}
+              className="h-8 lg:h-10 w-auto object-contain opacity-50 hover:opacity-100 transition-opacity duration-300 flex-shrink-0 grayscale hover:grayscale-0"
+            />
+          ))}
         </motion.div>
       </div>
     </section>

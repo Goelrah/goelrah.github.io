@@ -66,11 +66,11 @@ export default function Projects() {
         >
           <motion.div variants={fadeUp} transition={{ duration: 0.5 }} className="mb-14">
             <span className="text-sm text-surface-500 font-mono tracking-wider">05 // Case Studies</span>
-            <h2 className="text-3xl lg:text-4xl font-bold mt-4 leading-tight">
-              Real problems. <span className="text-primary-400">Shipped solutions.</span>
+            <h2 className="text-3xl lg:text-4xl font-bold mt-4 leading-tight text-surface-900">
+              Real problems. <span className="text-primary-600">Shipped solutions.</span>
             </h2>
-            <p className="text-surface-400 mt-3 max-w-2xl">
-              Every engagement below was delivered end-to-end — not advised on. I owned the outcome.
+            <p className="text-surface-600 mt-3 max-w-2xl">
+              Every engagement below was delivered end-to-end with full ownership — the same way I deliver for consulting clients today.
             </p>
           </motion.div>
 
@@ -84,33 +84,33 @@ export default function Projects() {
                 variants={fadeUp}
                 transition={{ duration: 0.5 }}
                 whileHover={{ y: -4, transition: { duration: 0.2 } }}
-                className="p-7 rounded-2xl border border-surface-800/60 bg-surface-900/40 hover:border-primary-500/30 transition-all group"
+                className="p-7 rounded-2xl border border-surface-200 bg-white hover:shadow-lg hover:border-primary-200 transition-all group"
               >
-                <span className="text-[11px] font-mono text-primary-400 tracking-wider uppercase">
+                <span className="text-[11px] font-mono text-primary-600 tracking-wider uppercase">
                   {study.category}
                 </span>
-                <h3 className="text-base font-bold text-white mt-2 mb-5 group-hover:text-primary-300 transition-colors">
+                <h3 className="text-base font-bold text-surface-900 mt-2 mb-5 group-hover:text-primary-700 transition-colors">
                   {study.title}
                 </h3>
 
                 <div className="space-y-4 mb-5">
                   <div>
                     <h4 className="text-[11px] font-semibold text-surface-500 uppercase tracking-wider mb-1">The Problem</h4>
-                    <p className="text-sm text-surface-400 leading-relaxed">{study.challenge}</p>
+                    <p className="text-sm text-surface-600 leading-relaxed">{study.challenge}</p>
                   </div>
                   <div>
                     <h4 className="text-[11px] font-semibold text-surface-500 uppercase tracking-wider mb-1">My Approach</h4>
-                    <p className="text-sm text-surface-400 leading-relaxed">{study.approach}</p>
+                    <p className="text-sm text-surface-600 leading-relaxed">{study.approach}</p>
                   </div>
                   <div>
                     <h4 className="text-[11px] font-semibold text-surface-500 uppercase tracking-wider mb-1">The Result</h4>
-                    <p className="text-sm text-surface-200 leading-relaxed font-medium">{study.outcome}</p>
+                    <p className="text-sm text-primary-700 leading-relaxed font-medium">{study.outcome}</p>
                   </div>
                 </div>
 
-                <div className="flex flex-wrap gap-2 pt-4 border-t border-surface-800/40">
+                <div className="flex flex-wrap gap-2 pt-4 border-t border-surface-100">
                   {study.tech.map((t) => (
-                    <span key={t} className="text-[11px] px-2.5 py-1 rounded-md bg-surface-800 text-surface-400 font-medium">
+                    <span key={t} className="text-[11px] px-2.5 py-1 rounded-md bg-surface-100 text-surface-600 border border-surface-200 font-medium">
                       {t}
                     </span>
                   ))}

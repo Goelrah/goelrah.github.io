@@ -4,7 +4,7 @@ const fadeUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }
 
 export default function About() {
   return (
-    <section id="about" className="relative py-24 lg:py-32">
+    <section id="about" className="relative py-24 lg:py-32 bg-surface-100/50">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div
           initial="hidden"
@@ -16,25 +16,23 @@ export default function About() {
             03 // About
           </motion.span>
 
-          {/* Header with photo */}
           <motion.div variants={fadeUp} transition={{ duration: 0.6 }} className="flex items-center gap-6 mt-6 mb-10">
             <img
               src="/rahul-goel.jpg"
               alt="Rahul Goel"
-              className="w-32 h-32 lg:w-60 lg:h-60 rounded-full object-cover object-[center_20%] border-3 border-primary-500/30 shadow-xl shadow-primary-500/10 -mt-2 -ml-2"
+              className="w-32 h-32 lg:w-60 lg:h-60 rounded-full object-cover object-[center_20%] border-4 border-white shadow-xl -mt-2 -ml-2"
             />
             <div>
-              <h2 className="text-2xl lg:text-3xl font-bold text-white leading-tight mb-2">
+              <h2 className="text-2xl lg:text-3xl font-bold text-surface-900 leading-tight mb-2">
                 Rahul Goel
               </h2>
-              <p className="text-primary-400 font-medium">Independent Technology Consultant</p>
+              <p className="text-primary-600 font-medium">Independent Technology Consultant</p>
               <p className="text-sm text-surface-500 mt-1">Bangalore, India · Remote worldwide</p>
             </div>
           </motion.div>
 
           <div className="grid lg:grid-cols-[1.2fr_1fr] gap-16">
-            {/* Left — Story */}
-            <motion.div variants={fadeUp} transition={{ duration: 0.6 }} className="space-y-5 text-surface-400 leading-relaxed">
+            <motion.div variants={fadeUp} transition={{ duration: 0.6 }} className="space-y-5 text-surface-600 leading-relaxed">
               <p>
                 I spent 17 years inside Amazon and Deloitte building the systems and teams that most 
                 consultants only advise on. I've governed a $162M AWS portfolio, shipped production GenAI 
@@ -45,13 +43,12 @@ export default function About() {
                 leadership without the 6-month hiring cycle. I don't do slide decks. I embed with your 
                 team, own the delivery, and leave you with a working system and a team that can sustain it.
               </p>
-              <p className="text-white font-medium border-l-2 border-primary-500 pl-4">
+              <p className="text-surface-800 font-medium border-l-3 border-primary-400 pl-4 bg-primary-50/50 py-3 rounded-r-lg">
                 "If you're hiring a consultant to tell you what to do, you don't need me. If you're hiring 
                 someone to actually do it — at the quality level of a Staff engineer at Amazon — let's talk."
               </p>
             </motion.div>
 
-            {/* Right — Credentials */}
             <motion.div variants={fadeUp} transition={{ duration: 0.6, delay: 0.15 }} className="space-y-8">
               <div>
                 <h3 className="text-sm text-surface-500 font-mono tracking-wider mb-4">Credentials</h3>
@@ -62,8 +59,8 @@ export default function About() {
                   { name: 'PRINCE2 Practitioner', org: 'AXELOS, UK' },
                   { name: 'ITIL v3 Foundation', org: 'APMG International' },
                 ].map((c) => (
-                  <div key={c.name} className="flex items-center justify-between py-2.5 border-b border-surface-800/50 group hover:border-primary-500/30 transition-colors">
-                    <span className="text-sm text-white font-medium group-hover:text-primary-300 transition-colors">{c.name}</span>
+                  <div key={c.name} className="flex items-center justify-between py-2.5 border-b border-surface-200 group hover:border-primary-300 transition-colors">
+                    <span className="text-sm text-surface-800 font-medium group-hover:text-primary-700 transition-colors">{c.name}</span>
                     <span className="text-xs text-surface-500 flex-shrink-0 ml-4">{c.org}</span>
                   </div>
                 ))}
@@ -76,8 +73,8 @@ export default function About() {
                   { name: 'Best Engineering Manager (2x)', org: 'Deloitte' },
                   { name: 'Best Team Lead (2x)', org: 'RBS' },
                 ].map((a) => (
-                  <div key={a.name} className="flex items-center justify-between py-2.5 border-b border-surface-800/50 group hover:border-primary-500/30 transition-colors">
-                    <span className="text-sm text-white font-medium group-hover:text-primary-300 transition-colors">{a.name}</span>
+                  <div key={a.name} className="flex items-center justify-between py-2.5 border-b border-surface-200 group hover:border-primary-300 transition-colors">
+                    <span className="text-sm text-surface-800 font-medium group-hover:text-primary-700 transition-colors">{a.name}</span>
                     <span className="text-xs text-surface-500 flex-shrink-0 ml-4">{a.org}</span>
                   </div>
                 ))}
