@@ -24,7 +24,7 @@ export default function ClientLogos() {
           variants={{ visible: { transition: { staggerChildren: 0.05 } } }}
         >
           <motion.p variants={fadeUp} transition={{ duration: 0.4 }} className="text-xs text-surface-500 font-mono tracking-wider text-center mb-8 uppercase">
-            Delivered for teams at
+            Trusted by teams at
           </motion.p>
           <motion.div
             variants={{ visible: { transition: { staggerChildren: 0.06 } } }}

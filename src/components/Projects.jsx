@@ -1,53 +1,56 @@
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { Github } from 'lucide-react'
 
 const fadeUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }
 
-const projects = [
+const caseStudies = [
   {
-    category: 'GENAI / AMAZON',
-    title: 'AskGenie — Autonomous Ticket Resolution',
-    challenge: 'Manual support workflows overwhelmed engineering teams with thousands of repetitive tickets daily.',
-    outcome: 'Production GenAI on AWS Bedrock Agents — 88% autonomous resolution, $2.3M annual ROI, 25% effort reduction.',
+    category: 'GENAI DELIVERY',
+    title: 'Production AI That Resolves 88% of Tickets Autonomously',
+    challenge: 'Engineering teams overwhelmed by thousands of repetitive support tickets daily. Manual resolution consuming senior engineer time.',
+    approach: 'Designed and shipped agentic RAG system on AWS Bedrock. LLM selection, prompt engineering, and LLMOps pipeline from PoC through production.',
+    outcome: '88% autonomous resolution rate. $2.3M annual ROI. 25% reduction in manual effort across the organization.',
     tech: ['AWS Bedrock', 'RAG', 'OpenSearch', 'Lambda', 'LLMOps'],
   },
   {
-    category: 'GENAI / AMAZON',
-    title: 'Procurement Advisor — AI Inventory Management',
-    challenge: 'Manual procurement across 1,200+ facilities on $250M+ spend created bottlenecks.',
-    outcome: 'Agentic workflows automating inventory decisions — $2.3M ROI, 25% manual effort reduction.',
-    tech: ['AWS Bedrock', 'Agentic Workflows', 'DynamoDB', 'LLM Selection'],
+    category: 'CLOUD FINOPS',
+    title: '$8M Annual Savings on a $162M AWS Portfolio',
+    challenge: '$162M cloud portfolio with no centralized governance. Teams overspending with no visibility or accountability.',
+    approach: 'Built automated guardrails, rightsizing automation, and RI optimization. Designed FinOps governance framework and executive KPI dashboards.',
+    outcome: '$8M annual cloud cost savings. VP-level governance framework adopted org-wide. 20+ automated guardrails.',
+    tech: ['AWS', 'Terraform', 'FinOps', 'Cost Explorer', 'CloudFormation'],
   },
   {
-    category: 'CLOUD / AMAZON',
-    title: 'Cloud FinOps — $162M Portfolio Governance',
-    challenge: '$162M AWS portfolio lacked centralized governance and automated guardrails.',
-    outcome: 'Automated FinOps framework — $8M annual savings, VP-level governance adoption.',
-    tech: ['AWS', 'Terraform', 'FinOps', 'Cost Explorer'],
+    category: 'CAPITAL PROGRAM',
+    title: '$5.3B Program Delivered — $50M/Year Cost Avoidance',
+    challenge: '$5.3B capital planning program spanning 4 cross-functional teams with no unified governance or KPI tracking.',
+    approach: 'Established governance cadences, executive reporting dashboards, and cross-functional alignment across engineering, finance, and operations.',
+    outcome: '$50M/year in cost avoidance. Zero missed deadlines. C-suite visibility into program health.',
+    tech: ['Program Governance', 'KPI Dashboards', 'Cross-Functional Delivery'],
   },
   {
-    category: 'PLATFORM / DELOITTE',
-    title: 'HUX — Customer Data Platform',
-    challenge: 'Fortune 500 client needed AI-driven campaign orchestration replacing manual marketing.',
-    outcome: 'Full-stack CDP on Snowflake with LLM orchestration — 2.5x ROI, 22% sales increase.',
+    category: 'PLATFORM DELIVERY',
+    title: 'Customer Data Platform — 2.5x Marketing ROI',
+    challenge: 'Fortune 500 retail client with manual campaign management, no unified customer data, and declining marketing effectiveness.',
+    approach: 'Designed full-stack CDP on Snowflake with LLM-driven orchestration. End-to-end data pipelines, behavioral segmentation, and automated campaign rollout.',
+    outcome: '2.5x marketing ROI. 22% e-commerce sales increase. 12% churn reduction. Deployed at scale.',
     tech: ['Snowflake', 'LLM Orchestration', 'Adobe Magento', 'Data Science'],
   },
   {
-    category: 'OPEN SOURCE',
-    title: 'LLM Eval Compass',
-    challenge: 'Teams lack structured, repeatable LLM evaluation — most run benchmarks once.',
-    outcome: 'Framework evaluating LLMs across 6 dimensions with CI/CD gates and decision docs.',
-    tech: ['Python', 'AWS Bedrock', 'RAGAS', 'MLflow'],
-    repoUrl: 'https://github.com/rahgoel2510/llm-eval-compass',
+    category: 'ENGINEERING ORG',
+    title: '45-Person Engineering Practice Built From Scratch',
+    challenge: 'Deloitte needed a scalable engineering capability for Fortune 500 client delivery. No existing team or standards.',
+    approach: 'Hired, trained, and scaled from 0 to 45 engineers. Established delivery standards, career frameworks, and client engagement models.',
+    outcome: 'Best Performing Manager (2 consecutive years). 10+ Fortune 500 clients delivered. Self-sustaining practice.',
+    tech: ['Team Building', 'Delivery Standards', 'Client Management'],
   },
   {
-    category: 'OPEN SOURCE',
-    title: 'n8n Job Hunter — AI Pipeline',
-    challenge: 'Manual job searching is inconsistent with no systematic fitment scoring.',
-    outcome: 'Automated pipeline — scrapes, scores via Claude Haiku, delivers HTML digest every 12h.',
-    tech: ['Python', 'n8n', 'Docker', 'Claude Haiku'],
-    repoUrl: 'https://github.com/rahgoel2510/n8n-job-hunter',
+    category: 'OBSERVABILITY',
+    title: 'Multi-Region Platform Across 15+ Global Markets',
+    challenge: 'No unified observability across 15+ international markets. 45-minute detection time, 3-hour resolution.',
+    approach: 'Led cross-org delivery of EagleEye platform (Python, Lambda, Prometheus, Datadog). Drove adoption across distributed teams.',
+    outcome: '20% throughput improvement. Operational readiness standards adopted globally.',
+    tech: ['Python', 'Lambda', 'Prometheus', 'Datadog', 'Multi-Region'],
   },
 ]
 
@@ -61,66 +64,60 @@ export default function Projects() {
           viewport={{ once: true, margin: '-80px' }}
           variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
         >
-          <motion.span variants={fadeUp} transition={{ duration: 0.5 }} className="text-sm text-surface-500 font-mono tracking-wider block">
-            04 // Selected Work
-          </motion.span>
-          <motion.h2 variants={fadeUp} transition={{ duration: 0.6 }} className="text-3xl lg:text-4xl font-bold mt-4 mb-16 leading-tight">
-            Systems that deliver <span className="text-primary-400">measurable impact.</span>
-          </motion.h2>
-        </motion.div>
+          <motion.div variants={fadeUp} transition={{ duration: 0.5 }} className="mb-14">
+            <span className="text-sm text-surface-500 font-mono tracking-wider">05 // Case Studies</span>
+            <h2 className="text-3xl lg:text-4xl font-bold mt-4 leading-tight">
+              Real problems. <span className="text-primary-400">Shipped solutions.</span>
+            </h2>
+            <p className="text-surface-400 mt-3 max-w-2xl">
+              Every engagement below was delivered end-to-end — not advised on. I owned the outcome.
+            </p>
+          </motion.div>
 
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-50px' }}
-          variants={{ visible: { transition: { staggerChildren: 0.08 } } }}
-          className="grid lg:grid-cols-2 gap-6"
-        >
-          {projects.map((project) => (
-            <motion.div
-              key={project.title}
-              variants={fadeUp}
-              transition={{ duration: 0.5 }}
-              whileHover={{ y: -4, transition: { duration: 0.2 } }}
-              className="p-7 rounded-2xl border border-surface-800/60 bg-surface-900/40 hover:border-primary-500/30 transition-all group"
-            >
-              {/* Category */}
-              <div className="flex items-center justify-between mb-4">
+          <motion.div
+            variants={{ visible: { transition: { staggerChildren: 0.08 } } }}
+            className="grid lg:grid-cols-2 gap-6"
+          >
+            {caseStudies.map((study) => (
+              <motion.div
+                key={study.title}
+                variants={fadeUp}
+                transition={{ duration: 0.5 }}
+                whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                className="p-7 rounded-2xl border border-surface-800/60 bg-surface-900/40 hover:border-primary-500/30 transition-all group"
+              >
                 <span className="text-[11px] font-mono text-primary-400 tracking-wider uppercase">
-                  {project.category}
+                  {study.category}
                 </span>
-                {project.repoUrl && (
-                  <a href={project.repoUrl} target="_blank" rel="noopener noreferrer" className="text-surface-500 hover:text-primary-400 transition-colors">
-                    <Github className="w-4 h-4" />
-                  </a>
-                )}
-              </div>
+                <h3 className="text-base font-bold text-white mt-2 mb-5 group-hover:text-primary-300 transition-colors">
+                  {study.title}
+                </h3>
 
-              {/* Title */}
-              <h3 className="text-lg font-bold text-white mb-5 group-hover:text-primary-300 transition-colors">{project.title}</h3>
+                <div className="space-y-4 mb-5">
+                  <div>
+                    <h4 className="text-[11px] font-semibold text-surface-500 uppercase tracking-wider mb-1">The Problem</h4>
+                    <p className="text-sm text-surface-400 leading-relaxed">{study.challenge}</p>
+                  </div>
+                  <div>
+                    <h4 className="text-[11px] font-semibold text-surface-500 uppercase tracking-wider mb-1">My Approach</h4>
+                    <p className="text-sm text-surface-400 leading-relaxed">{study.approach}</p>
+                  </div>
+                  <div>
+                    <h4 className="text-[11px] font-semibold text-surface-500 uppercase tracking-wider mb-1">The Result</h4>
+                    <p className="text-sm text-surface-200 leading-relaxed font-medium">{study.outcome}</p>
+                  </div>
+                </div>
 
-              {/* Challenge */}
-              <div className="mb-4">
-                <h4 className="text-[11px] font-semibold text-surface-500 uppercase tracking-wider mb-1.5">The Challenge</h4>
-                <p className="text-sm text-surface-400 leading-relaxed">{project.challenge}</p>
-              </div>
-
-              {/* Outcome */}
-              <div className="mb-6">
-                <h4 className="text-[11px] font-semibold text-surface-500 uppercase tracking-wider mb-1.5">The Outcome</h4>
-                <p className="text-sm text-surface-200 leading-relaxed font-medium">{project.outcome}</p>
-              </div>
-
-              {/* Tech */}
-              <div className="flex flex-wrap gap-2">
-                {project.tech.map((t) => (
-                  <span key={t} className="text-[11px] px-2.5 py-1 rounded-md bg-surface-800 text-surface-400 font-medium">
-                    {t}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
-          ))}
+                <div className="flex flex-wrap gap-2 pt-4 border-t border-surface-800/40">
+                  {study.tech.map((t) => (
+                    <span key={t} className="text-[11px] px-2.5 py-1 rounded-md bg-surface-800 text-surface-400 font-medium">
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
         </motion.div>
       </div>
     </section>

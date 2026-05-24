@@ -1,32 +1,42 @@
 import { motion } from 'framer-motion'
-import { Brain, Cloud, Users } from 'lucide-react'
+import { Brain, Cloud, Users, Zap } from 'lucide-react'
 
 const fadeUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }
 
 const services = [
   {
     icon: Brain,
-    title: 'AI Program Delivery',
-    description: 'I take GenAI initiatives from PoC to production. Agentic workflow design, RAG architecture, LLM selection, and LLMOps — with full accountability for business outcomes at VP and C-suite level.',
-    outcome: 'Production AI systems with measurable ROI, not stalled experiments.',
+    title: 'GenAI Program Rescue',
+    description: 'Your AI initiative is stuck between PoC and production. I take over end-to-end delivery — agentic workflow design, RAG architecture, LLM selection, and LLMOps — and ship it to production with measurable ROI.',
+    outcome: 'Production AI system generating revenue, not a stalled experiment.',
+    timeline: '8-16 weeks',
   },
   {
     icon: Cloud,
-    title: 'Cloud Governance & FinOps',
-    description: 'I build governance frameworks that make $100M+ cloud portfolios predictable. Automated guardrails, rightsizing, Reserved Instance optimization, and executive KPI reporting.',
-    outcome: 'Millions in annual savings with VP-level visibility and control.',
+    title: 'Cloud FinOps Transformation',
+    description: 'Your cloud bill is growing faster than your revenue. I audit your portfolio, implement automated guardrails, rightsizing, and RI optimization, and build the governance framework your CFO needs.',
+    outcome: 'Millions in annual savings with executive-level visibility.',
+    timeline: '3-6 weeks',
   },
   {
     icon: Users,
-    title: 'Engineering Leadership',
-    description: 'I build and scale engineering organizations. Hiring, performance management, architecture reviews, delivery standards, and TPM capability building across distributed teams.',
-    outcome: 'High-performing teams that ship predictably across global markets.',
+    title: 'TPM Org Design & Coaching',
+    description: 'Your engineering org is shipping slower as it grows. I design the TPM function, hire the first leaders, establish delivery standards, and build the operating cadence that makes delivery predictable.',
+    outcome: 'Self-sustaining TPM org that ships on time, every time.',
+    timeline: '3-6 months',
+  },
+  {
+    icon: Zap,
+    title: 'Fractional Technical Leadership',
+    description: 'You need a senior technical leader but can\'t justify a full-time hire yet. I embed with your team part-time — architecture reviews, stakeholder alignment, and delivery accountability at VP level.',
+    outcome: 'Senior leadership without the full-time overhead.',
+    timeline: 'Ongoing retainer',
   },
 ]
 
 export default function Services() {
   return (
-    <section className="relative py-24 lg:py-32 bg-surface-900/20">
+    <section id="services" className="relative py-24 lg:py-32 bg-surface-900/20">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div
           initial="hidden"
@@ -35,34 +45,37 @@ export default function Services() {
           variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
         >
           {/* Why Me */}
-          <motion.div variants={fadeUp} transition={{ duration: 0.5 }} className="mb-20">
-            <span className="text-sm text-surface-500 font-mono tracking-wider">01 // Why Me?</span>
-            <h2 className="text-3xl lg:text-4xl font-bold mt-4 mb-8 leading-tight max-w-3xl">
-              I turn complex, high-stakes technical programs into <span className="text-primary-400">measurable business outcomes</span> — at Amazon scale.
+          <motion.div variants={fadeUp} transition={{ duration: 0.5 }} className="mb-20 max-w-3xl">
+            <span className="text-sm text-surface-500 font-mono tracking-wider">01 // Why Hire Me</span>
+            <h2 className="text-3xl lg:text-4xl font-bold mt-4 mb-8 leading-tight">
+              Most consultants give you a deck. <span className="text-primary-400">I give you a shipped product.</span>
             </h2>
-            <div className="text-surface-400 leading-relaxed max-w-3xl space-y-5">
+            <div className="text-surface-400 leading-relaxed space-y-4">
               <p>
-                With 20 years of experience at Amazon, I lead production GenAI delivery end-to-end — architecting 
-                RAG pipelines that achieve 88% autonomous resolution, ML-driven procurement systems that save millions 
-                annually, and multi-region observability platforms on AWS Bedrock. I've built and coached TPM 
-                organizations delivering global capabilities across a $162M AWS portfolio.
+                I'm not a strategy consultant who disappears after the PowerPoint. I'm a builder who owns 
+                delivery end-to-end — from feasibility experiment through production deployment — with full 
+                accountability for business outcomes.
               </p>
               <p>
-                Before Amazon, I led 10+ Fortune 500 engagements at Deloitte Digital, from ML campaign automation 
-                to branchless banking platforms. Every engagement focused on one thing: measurable business outcomes. 
-                I translate engineering complexity into executive decisions and I'm proven across 15+ global markets.
+                At Amazon, I governed a $162M AWS portfolio (saving $8M/year), shipped GenAI systems that 
+                resolve 88% of tickets autonomously, and directed a $5.3B capital program. At Deloitte, I 
+                built a 45-person engineering practice and delivered for 10+ Fortune 500 clients.
+              </p>
+              <p className="text-white font-medium">
+                I bring that same intensity to every consulting engagement — whether it's a 3-week audit 
+                or a 6-month transformation.
               </p>
             </div>
           </motion.div>
 
-          {/* What I Do */}
-          <motion.div variants={fadeUp} transition={{ duration: 0.5 }} className="mb-12">
-            <span className="text-sm text-surface-500 font-mono tracking-wider">// What I Do</span>
+          {/* Services */}
+          <motion.div variants={fadeUp} transition={{ duration: 0.5 }} className="mb-10">
+            <span className="text-sm text-surface-500 font-mono tracking-wider">02 // Services</span>
           </motion.div>
 
           <motion.div
             variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
-            className="grid lg:grid-cols-3 gap-6"
+            className="grid lg:grid-cols-2 gap-6"
           >
             {services.map((service) => (
               <motion.div
@@ -72,11 +85,16 @@ export default function Services() {
                 whileHover={{ y: -4, borderColor: 'rgba(99, 102, 241, 0.3)', transition: { duration: 0.2 } }}
                 className="p-8 rounded-2xl border border-surface-800/60 bg-surface-950/50 hover:bg-surface-900/50 transition-all group"
               >
-                <div className="w-12 h-12 rounded-xl bg-primary-500/10 flex items-center justify-center mb-6 group-hover:bg-primary-500/20 transition-colors">
-                  <service.icon className="w-6 h-6 text-primary-400" />
+                <div className="flex items-start justify-between mb-4">
+                  <div className="w-12 h-12 rounded-xl bg-primary-500/10 flex items-center justify-center group-hover:bg-primary-500/20 transition-colors">
+                    <service.icon className="w-6 h-6 text-primary-400" />
+                  </div>
+                  <span className="text-[11px] font-mono text-surface-500 px-2 py-1 rounded bg-surface-800/50">
+                    {service.timeline}
+                  </span>
                 </div>
                 <h3 className="text-lg font-bold text-white mb-3">{service.title}</h3>
-                <p className="text-sm text-surface-400 leading-relaxed mb-6">{service.description}</p>
+                <p className="text-sm text-surface-400 leading-relaxed mb-5">{service.description}</p>
                 <div className="pt-4 border-t border-surface-800/50">
                   <span className="text-[11px] font-semibold text-surface-500 uppercase tracking-wider">Outcome</span>
                   <p className="text-sm text-primary-300 mt-1 font-medium">{service.outcome}</p>
@@ -85,52 +103,23 @@ export default function Services() {
             ))}
           </motion.div>
 
-          {/* Engagement Model */}
+          {/* How to Engage */}
           <motion.div variants={fadeUp} transition={{ duration: 0.5 }} className="mt-16 p-8 rounded-2xl border border-surface-800/60 bg-surface-900/30">
-            <h3 className="text-lg font-bold text-white mb-6">How to Engage</h3>
-            <div className="grid sm:grid-cols-3 gap-6 mb-8">
-              <div>
-                <div className="text-2xl font-bold text-primary-400 mb-2">01</div>
-                <h4 className="text-sm font-semibold text-white mb-1">Discovery Call</h4>
-                <p className="text-xs text-surface-400">30-minute call to understand your challenge, constraints, and goals.</p>
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-primary-400 mb-2">02</div>
-                <h4 className="text-sm font-semibold text-white mb-1">Scope & Proposal</h4>
-                <p className="text-xs text-surface-400">Clear deliverables, timeline, and engagement model — retainer, project-based, or fractional.</p>
-              </div>
-              <div>
-                <div className="text-2xl font-bold text-primary-400 mb-2">03</div>
-                <h4 className="text-sm font-semibold text-white mb-1">Deliver & Measure</h4>
-                <p className="text-xs text-surface-400">Execute with full accountability. Weekly updates. Measurable outcomes tied to business KPIs.</p>
-              </div>
+            <h3 className="text-lg font-bold text-white mb-6">How It Works</h3>
+            <div className="grid sm:grid-cols-4 gap-6">
+              {[
+                { step: '01', title: 'Discovery Call', desc: '30 minutes. I listen to your problem, ask hard questions, and tell you honestly if I can help.' },
+                { step: '02', title: 'Proposal', desc: 'Clear scope, deliverables, timeline, and fixed price. No surprises. No hourly billing games.' },
+                { step: '03', title: 'Execute', desc: 'I embed with your team. Weekly updates. Full accountability. I ship, not advise.' },
+                { step: '04', title: 'Handoff', desc: 'Documentation, knowledge transfer, and a team that can sustain what I built without me.' },
+              ].map((s) => (
+                <div key={s.step}>
+                  <div className="text-2xl font-bold text-primary-400 mb-2">{s.step}</div>
+                  <h4 className="text-sm font-semibold text-white mb-1">{s.title}</h4>
+                  <p className="text-xs text-surface-400">{s.desc}</p>
+                </div>
+              ))}
             </div>
-
-            {/* Packaged Offerings */}
-            <div className="pt-6 border-t border-surface-800/50">
-              <h4 className="text-sm font-semibold text-white mb-4">Packaged Offerings</h4>
-              <div className="grid sm:grid-cols-3 gap-4">
-                <div className="p-4 rounded-lg border border-surface-800/50 bg-surface-950/50">
-                  <h5 className="text-xs font-bold text-primary-400 mb-1">GenAI Readiness Assessment</h5>
-                  <p className="text-[11px] text-surface-400 mb-2">2-week engagement</p>
-                  <p className="text-[11px] text-surface-500">Deliverable: Architecture doc + Implementation roadmap + Vendor evaluation scorecard</p>
-                </div>
-                <div className="p-4 rounded-lg border border-surface-800/50 bg-surface-950/50">
-                  <h5 className="text-xs font-bold text-primary-400 mb-1">Cloud FinOps Audit</h5>
-                  <p className="text-[11px] text-surface-400 mb-2">3-week engagement</p>
-                  <p className="text-[11px] text-surface-500">Deliverable: Cost optimization report + Guardrail framework + KPI dashboard design</p>
-                </div>
-                <div className="p-4 rounded-lg border border-surface-800/50 bg-surface-950/50">
-                  <h5 className="text-xs font-bold text-primary-400 mb-1">TPM Org Design</h5>
-                  <p className="text-[11px] text-surface-400 mb-2">3-month engagement</p>
-                  <p className="text-[11px] text-surface-500">Deliverable: Org structure + Hiring plan + Delivery standards + Playbooks</p>
-                </div>
-              </div>
-            </div>
-
-            <p className="text-xs text-surface-500 mt-6 pt-4 border-t border-surface-800/50">
-              Available for advisory retainers, fractional leadership, and project-based engagements. Contact for pricing.
-            </p>
           </motion.div>
         </motion.div>
       </div>

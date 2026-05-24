@@ -4,12 +4,10 @@ import Hero from './components/Hero'
 import ClientLogos from './components/ClientLogos'
 import Services from './components/Services'
 import About from './components/About'
-import OperatingModel from './components/OperatingModel'
 import Experience from './components/Experience'
 import Skills from './components/Skills'
 import Testimonials from './components/Testimonials'
 import Projects from './components/Projects'
-import Education from './components/Education'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
@@ -49,12 +47,10 @@ function App() {
         <ClientLogos />
         <Services />
         <About />
-        <OperatingModel />
         <Experience />
         <Skills />
         <Testimonials />
         <Projects />
-        <Education />
         <Contact />
       </main>
       <Footer scrollToSection={scrollToSection} />

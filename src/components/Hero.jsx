@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { ArrowRight, Download } from 'lucide-react'
+import { ArrowRight, Download, Calendar } from 'lucide-react'
 
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -15,48 +15,41 @@ export default function Hero({ scrollToSection }) {
           animate="visible"
           variants={{ visible: { transition: { staggerChildren: 0.12 } } }}
         >
-          {/* Availability badge */}
-          <motion.div variants={fadeUp} transition={{ duration: 0.6 }} className="mb-12">
+          {/* Availability */}
+          <motion.div variants={fadeUp} transition={{ duration: 0.6 }} className="mb-10">
             <div className="inline-flex items-center gap-2 px-4 py-2 border border-surface-800 rounded-full">
-              <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-              <span className="text-sm text-surface-400">Available for Staff TPM & AI Leadership roles · Booking for Q3 2026</span>
+              <Calendar className="w-3.5 h-3.5 text-green-400" />
+              <span className="text-sm text-surface-400">Currently booking for Q3 2026</span>
             </div>
           </motion.div>
 
-          {/* Main headline */}
+          {/* Headline */}
           <motion.h1
             variants={fadeUp}
             transition={{ duration: 0.7 }}
-            className="text-4xl sm:text-5xl lg:text-7xl font-bold leading-[1.1] mb-8 max-w-4xl"
+            className="text-4xl sm:text-5xl lg:text-7xl font-bold leading-[1.08] mb-8 max-w-4xl"
           >
-            I build AI systems that <span className="text-primary-400">save millions</span> and programs that never miss.
+            I turn stalled AI programs into <span className="text-primary-400">production systems that generate ROI.</span>
           </motion.h1>
 
           {/* Subtitle */}
           <motion.p
             variants={fadeUp}
             transition={{ duration: 0.6 }}
-            className="text-lg sm:text-xl text-surface-400 max-w-2xl mb-4 leading-relaxed"
+            className="text-lg sm:text-xl text-surface-400 max-w-2xl mb-6 leading-relaxed"
           >
-            Rahul Goel — Senior TPM & AWS Certified Solutions Architect. 20 years. $165M cloud portfolio. GenAI systems at Amazon scale.
+            Independent Technology Consultant. 20 years. I'm the person you hire when your GenAI initiative 
+            is stuck between PoC and production, your cloud portfolio is bleeding money, or your engineering 
+            org has stopped scaling.
           </motion.p>
 
-          {/* Location & preferences */}
-          <motion.p
-            variants={fadeUp}
-            transition={{ duration: 0.5 }}
-            className="text-sm text-surface-500 mb-4"
-          >
-            📍 Bangalore, India · Open to Remote · Open to Relocation
-          </motion.p>
-
-          {/* Target & visa */}
+          {/* Credibility line */}
           <motion.p
             variants={fadeUp}
             transition={{ duration: 0.5 }}
             className="text-sm text-surface-500 mb-12"
           >
-            Open to: FAANG, Enterprise SaaS, AI-native startups · Indian citizen · No visa sponsorship required for India roles
+            Previously: Amazon (Staff TPM) · Deloitte (Engineering Director) · 10+ Fortune 500 clients · AWS Certified Solutions Architect
           </motion.p>
 
           {/* CTAs */}
@@ -65,42 +58,32 @@ export default function Hero({ scrollToSection }) {
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
               onClick={() => scrollToSection('contact')}
-              className="inline-flex items-center gap-2 px-6 py-3.5 bg-white text-surface-950 font-semibold rounded-lg hover:bg-surface-200 transition-colors"
+              className="inline-flex items-center gap-2 px-7 py-4 bg-white text-surface-950 font-semibold rounded-lg hover:bg-surface-200 transition-colors text-base"
             >
-              Let's work together
+              Book a Discovery Call
               <ArrowRight className="w-4 h-4" />
             </motion.button>
             <motion.button
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
               onClick={() => scrollToSection('about')}
-              className="inline-flex items-center gap-2 px-6 py-3.5 border border-surface-700 text-surface-300 font-medium rounded-lg hover:border-surface-500 hover:text-white transition-colors"
+              className="inline-flex items-center gap-2 px-7 py-4 border border-surface-700 text-surface-300 font-medium rounded-lg hover:border-surface-500 hover:text-white transition-colors"
             >
-              Learn more
+              See how I work
             </motion.button>
-            <motion.a
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-              href="/assets/RahulGoel_Resume.pdf"
-              download
-              className="inline-flex items-center gap-2 px-6 py-3.5 border border-surface-700 text-surface-300 font-medium rounded-lg hover:border-surface-500 hover:text-white transition-colors"
-            >
-              <Download className="w-4 h-4" />
-              Resume
-            </motion.a>
           </motion.div>
 
-          {/* Metrics — animated counters */}
+          {/* Metrics */}
           <motion.div
             variants={fadeUp}
             transition={{ duration: 0.6 }}
             className="grid grid-cols-2 lg:grid-cols-4 gap-8 pt-12 border-t border-surface-800/50"
           >
             {[
-              { value: '20+', label: 'Years Shipping' },
-              { value: '$165M', label: 'AWS Portfolio' },
-              { value: '88%', label: 'AI Resolution Rate' },
-              { value: '45+', label: 'Team Built' },
+              { value: '20+', label: 'Years Experience' },
+              { value: '$8M+', label: 'Client Savings Delivered' },
+              { value: '88%', label: 'AI Automation Rate' },
+              { value: '0', label: 'Missed Deadlines' },
             ].map((m, i) => (
               <motion.div
                 key={m.label}

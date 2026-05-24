@@ -13,7 +13,7 @@ export default function About() {
           variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
         >
           <motion.span variants={fadeUp} transition={{ duration: 0.5 }} className="text-sm text-surface-500 font-mono tracking-wider block">
-            01 // About
+            03 // About
           </motion.span>
 
           {/* Header with photo */}
@@ -24,36 +24,37 @@ export default function About() {
               className="w-32 h-32 lg:w-60 lg:h-60 rounded-full object-cover object-[center_20%] border-3 border-primary-500/30 shadow-xl shadow-primary-500/10 -mt-2 -ml-2"
             />
             <div>
-              <h2 className="text-2xl lg:text-3xl font-bold text-white leading-tight">
-                I help organizations deliver AI programs that <span className="text-primary-400">actually ship.</span>
+              <h2 className="text-2xl lg:text-3xl font-bold text-white leading-tight mb-2">
+                Rahul Goel
               </h2>
+              <p className="text-primary-400 font-medium">Independent Technology Consultant</p>
+              <p className="text-sm text-surface-500 mt-1">Bangalore, India · Remote worldwide</p>
             </div>
           </motion.div>
 
           <div className="grid lg:grid-cols-[1.2fr_1fr] gap-16">
-            {/* Left — About text */}
+            {/* Left — Story */}
             <motion.div variants={fadeUp} transition={{ duration: 0.6 }} className="space-y-5 text-surface-400 leading-relaxed">
               <p>
-                20 years delivering portfolio-scale programs where the stakes are high and the margin 
-                for error is low. Production GenAI systems that resolve 88% of tickets autonomously. 
-                Cloud governance that saves $8M annually. Capital programs worth $5.3B.
+                I spent 17 years inside Amazon and Deloitte building the systems and teams that most 
+                consultants only advise on. I've governed a $162M AWS portfolio, shipped production GenAI 
+                that resolves 88% of tickets without human intervention, and directed a $5.3B capital program.
               </p>
               <p>
-                I've built TPM orgs, coached engineering teams across 15+ global markets, and translated 
-                technical complexity into executive decisions at Amazon, Deloitte, and Fortune 500 clients.
+                Now I bring that same execution intensity to organizations that need senior technical 
+                leadership without the 6-month hiring cycle. I don't do slide decks. I embed with your 
+                team, own the delivery, and leave you with a working system and a team that can sustain it.
               </p>
-              <p>
-                Whether it's agentic workflow design, RAG architecture, cloud FinOps governance, or 
-                scaling engineering teams — I specialize in the gap between "promising PoC" and 
-                "production system generating ROI."
+              <p className="text-white font-medium border-l-2 border-primary-500 pl-4">
+                "If you're hiring a consultant to tell you what to do, you don't need me. If you're hiring 
+                someone to actually do it — at the quality level of a Staff engineer at Amazon — let's talk."
               </p>
             </motion.div>
 
             {/* Right — Credentials */}
             <motion.div variants={fadeUp} transition={{ duration: 0.6, delay: 0.15 }} className="space-y-8">
-              {/* Certifications */}
               <div>
-                <h3 className="text-sm text-surface-500 font-mono tracking-wider mb-4">Certifications</h3>
+                <h3 className="text-sm text-surface-500 font-mono tracking-wider mb-4">Credentials</h3>
                 {[
                   { name: 'PMP — Project Management Professional', org: 'PMI, 2025' },
                   { name: 'AWS Certified Solutions Architect', org: 'AWS, 2024' },
@@ -68,14 +69,12 @@ export default function About() {
                 ))}
               </div>
 
-              {/* Awards */}
               <div>
-                <h3 className="text-sm text-surface-500 font-mono tracking-wider mb-4">Recognition</h3>
+                <h3 className="text-sm text-surface-500 font-mono tracking-wider mb-4">Track Record</h3>
                 {[
                   { name: 'GenAI Program Lead Award', org: 'Amazon, 2024' },
-                  { name: 'Best Performing Engineering Manager', org: 'Deloitte, FY2020 & FY2021' },
-                  { name: 'Best Team Lead', org: 'RBS, 2011 & 2012' },
-                  { name: 'Ovation Excellence Award', org: 'RBS, 2011' },
+                  { name: 'Best Engineering Manager (2x)', org: 'Deloitte' },
+                  { name: 'Best Team Lead (2x)', org: 'RBS' },
                 ].map((a) => (
                   <div key={a.name} className="flex items-center justify-between py-2.5 border-b border-surface-800/50 group hover:border-primary-500/30 transition-colors">
                     <span className="text-sm text-white font-medium group-hover:text-primary-300 transition-colors">{a.name}</span>
