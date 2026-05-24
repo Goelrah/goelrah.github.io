@@ -11,6 +11,7 @@ const services = [
     outcome: 'Production AI generating revenue, not a stalled experiment.',
     timeline: '8-16 weeks',
     color: 'bg-violet-50 text-violet-600 border-violet-200',
+    borderColor: '#7c3aed',
   },
   {
     icon: Cloud,
@@ -19,6 +20,7 @@ const services = [
     outcome: 'Millions in annual savings with executive visibility.',
     timeline: '3-6 weeks',
     color: 'bg-blue-50 text-blue-600 border-blue-200',
+    borderColor: '#2563eb',
   },
   {
     icon: Users,
@@ -27,6 +29,7 @@ const services = [
     outcome: 'Self-sustaining TPM org that ships on time.',
     timeline: '3-6 months',
     color: 'bg-emerald-50 text-emerald-600 border-emerald-200',
+    borderColor: '#059669',
   },
   {
     icon: Zap,
@@ -35,6 +38,7 @@ const services = [
     outcome: 'Senior leadership without full-time overhead.',
     timeline: 'Ongoing retainer',
     color: 'bg-amber-50 text-amber-600 border-amber-200',
+    borderColor: '#d97706',
   },
 ]
 
@@ -86,7 +90,8 @@ export default function Services() {
                 variants={fadeUp}
                 transition={{ duration: 0.5 }}
                 whileHover={{ y: -3, transition: { duration: 0.2 } }}
-                className="p-7 rounded-2xl border border-surface-200 bg-white hover:shadow-lg hover:border-primary-200 transition-all group"
+                className="p-7 rounded-2xl border border-surface-200 bg-white hover:shadow-lg transition-all group border-l-4"
+                style={{ borderLeftColor: service.borderColor }}
               >
                 <div className="flex items-start justify-between mb-4">
                   <div className={`w-11 h-11 rounded-xl flex items-center justify-center border ${service.color}`}>

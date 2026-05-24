@@ -4,7 +4,7 @@ const fadeUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }
 
 export default function About() {
   return (
-    <section id="about" className="relative py-24 lg:py-32 bg-surface-100/50">
+    <section id="about" className="relative py-16 lg:py-24 bg-surface-100/50">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div
           initial="hidden"

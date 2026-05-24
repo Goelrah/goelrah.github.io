@@ -7,6 +7,7 @@ const caseStudies = [
   {
     category: 'GENAI DELIVERY',
     title: 'Production AI That Resolves 88% of Tickets Autonomously',
+    color: '#7c3aed',
     challenge: 'Engineering teams overwhelmed by thousands of repetitive support tickets daily. Manual resolution consuming senior engineer time.',
     approach: 'Designed and shipped agentic RAG system on AWS Bedrock. LLM selection, prompt engineering, and LLMOps pipeline from PoC through production.',
     outcome: '88% autonomous resolution rate. $2.3M annual ROI. 25% reduction in manual effort across the organization.',
@@ -15,6 +16,7 @@ const caseStudies = [
   {
     category: 'CLOUD FINOPS',
     title: '$8M Annual Savings on a $162M AWS Portfolio',
+    color: '#2563eb',
     challenge: '$162M cloud portfolio with no centralized governance. Teams overspending with no visibility or accountability.',
     approach: 'Built automated guardrails, rightsizing automation, and RI optimization. Designed FinOps governance framework and executive KPI dashboards.',
     outcome: '$8M annual cloud cost savings. VP-level governance framework adopted org-wide. 20+ automated guardrails.',
@@ -23,6 +25,7 @@ const caseStudies = [
   {
     category: 'CAPITAL PROGRAM',
     title: '$5.3B Program Delivered — $50M/Year Cost Avoidance',
+    color: '#d97706',
     challenge: '$5.3B capital planning program spanning 4 cross-functional teams with no unified governance or KPI tracking.',
     approach: 'Established governance cadences, executive reporting dashboards, and cross-functional alignment across engineering, finance, and operations.',
     outcome: '$50M/year in cost avoidance. Zero missed deadlines. C-suite visibility into program health.',
@@ -31,6 +34,7 @@ const caseStudies = [
   {
     category: 'PLATFORM DELIVERY',
     title: 'Customer Data Platform — 2.5x Marketing ROI',
+    color: '#059669',
     challenge: 'Fortune 500 retail client with manual campaign management, no unified customer data, and declining marketing effectiveness.',
     approach: 'Designed full-stack CDP on Snowflake with LLM-driven orchestration. End-to-end data pipelines, behavioral segmentation, and automated campaign rollout.',
     outcome: '2.5x marketing ROI. 22% e-commerce sales increase. 12% churn reduction. Deployed at scale.',
@@ -39,6 +43,7 @@ const caseStudies = [
   {
     category: 'ENGINEERING ORG',
     title: '45-Person Engineering Practice Built From Scratch',
+    color: '#dc2626',
     challenge: 'Deloitte needed a scalable engineering capability for Fortune 500 client delivery. No existing team or standards.',
     approach: 'Hired, trained, and scaled from 0 to 45 engineers. Established delivery standards, career frameworks, and client engagement models.',
     outcome: 'Best Performing Manager (2 consecutive years). 10+ Fortune 500 clients delivered. Self-sustaining practice.',
@@ -47,6 +52,7 @@ const caseStudies = [
   {
     category: 'OBSERVABILITY',
     title: 'Multi-Region Platform Across 15+ Global Markets',
+    color: '#0891b2',
     challenge: 'No unified observability across 15+ international markets. 45-minute detection time, 3-hour resolution.',
     approach: 'Led cross-org delivery of EagleEye platform (Python, Lambda, Prometheus, Datadog). Drove adoption across distributed teams.',
     outcome: '20% throughput improvement. Operational readiness standards adopted globally.',
@@ -84,9 +90,10 @@ export default function Projects() {
                 variants={fadeUp}
                 transition={{ duration: 0.5 }}
                 whileHover={{ y: -4, transition: { duration: 0.2 } }}
-                className="p-7 rounded-2xl border border-surface-200 bg-white hover:shadow-lg hover:border-primary-200 transition-all group"
+                className="p-7 rounded-2xl border border-surface-200 bg-white hover:shadow-lg transition-all group border-l-4"
+                style={{ borderLeftColor: study.color }}
               >
-                <span className="text-[11px] font-mono text-primary-600 tracking-wider uppercase">
+                <span className="text-[11px] font-mono tracking-wider uppercase font-semibold" style={{ color: study.color }}>
                   {study.category}
                 </span>
                 <h3 className="text-base font-bold text-surface-900 mt-2 mb-5 group-hover:text-primary-700 transition-colors">
@@ -104,7 +111,7 @@ export default function Projects() {
                   </div>
                   <div>
                     <h4 className="text-[11px] font-semibold text-surface-500 uppercase tracking-wider mb-1">The Result</h4>
-                    <p className="text-sm text-primary-700 leading-relaxed font-medium">{study.outcome}</p>
+                    <p className="text-sm leading-relaxed font-semibold" style={{ color: study.color }}>{study.outcome}</p>
                   </div>
                 </div>
 

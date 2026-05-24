@@ -91,7 +91,8 @@ export default function Skills() {
                 variants={fadeUp}
                 transition={{ duration: 0.5 }}
                 whileHover={{ y: -3, transition: { duration: 0.2 } }}
-                className="p-6 rounded-2xl border border-surface-200 bg-white hover:shadow-lg hover:border-primary-200 transition-all group"
+                className="p-6 rounded-2xl border border-surface-200 bg-white hover:shadow-lg transition-all group border-l-4"
+                style={{ borderLeftColor: area.color }}
               >
                 {/* Icon */}
                 <div className={`w-11 h-11 rounded-xl ${area.bg} border ${area.border} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
