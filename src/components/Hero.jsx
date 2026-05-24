@@ -39,7 +39,7 @@ export default function Hero({ scrollToSection }) {
               transition={{ duration: 0.6 }}
               className="text-lg text-surface-600 max-w-lg mb-8 leading-relaxed"
             >
-              Independent Technology Consultant & Staff TPM. 20 years. I'm the person you hire — full-time 
+              Independent Technology Consultant & Senior TPM. 20 years. I'm the person you hire — full-time 
               or on contract — when your GenAI initiative is stuck, your cloud portfolio is bleeding money, 
               or your engineering org has stopped scaling.
             </motion.p>
@@ -100,7 +100,7 @@ export default function Hero({ scrollToSection }) {
               </div>
 
               <h3 className="text-center text-lg font-bold text-surface-900 mb-1">Rahul Goel</h3>
-              <p className="text-center text-sm text-primary-600 font-medium mb-1">Technology Consultant & Staff TPM</p>
+              <p className="text-center text-sm text-primary-600 font-medium mb-1">Technology Consultant & Senior TPM</p>
               <p className="text-center text-[11px] text-surface-500 mb-6">Consulting · Fractional · Full-Time</p>
 
               {/* Stats grid */}

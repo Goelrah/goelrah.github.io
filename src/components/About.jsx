@@ -70,8 +70,9 @@ export default function About() {
                 <h3 className="text-sm text-surface-500 font-mono tracking-wider mb-4">Track Record</h3>
                 {[
                   { name: 'GenAI Program Lead Award', org: 'Amazon, 2024' },
-                  { name: 'Best Engineering Manager (2x)', org: 'Deloitte' },
-                  { name: 'Best Team Lead (2x)', org: 'RBS' },
+                  { name: 'Best Performing Engineering Manager', org: 'Deloitte, FY2020 & FY2021' },
+                  { name: 'Best Team Lead', org: 'RBS, 2011 & 2012' },
+                  { name: 'Ovation Excellence Award', org: 'RBS, 2011' },
                 ].map((a) => (
                   <div key={a.name} className="flex items-center justify-between py-2.5 border-b border-surface-200 group hover:border-primary-300 transition-colors">
                     <span className="text-sm text-surface-800 font-medium group-hover:text-primary-700 transition-colors">{a.name}</span>

@@ -26,7 +26,7 @@ export default function Education() {
           viewport={{ once: true, margin: '-80px' }}
           variants={{ visible: { transition: { staggerChildren: 0.1 } } }}
         >
-          <motion.div variants={fadeUp} transition={{ duration: 0.5 }} className="mb-8">
+          <motion.div variants={fadeUp} transition={{ duration: 0.5 }} className="mb-6">
             <span className="text-sm text-surface-500 font-mono tracking-wider">// Education</span>
           </motion.div>
 
@@ -39,14 +39,14 @@ export default function Education() {
                 key={edu.degree}
                 variants={fadeUp}
                 transition={{ duration: 0.5 }}
-                className="flex items-start gap-4 p-5 rounded-xl border border-surface-800/50 bg-surface-900/30"
+                className="flex items-start gap-4 p-5 rounded-xl border border-surface-200 bg-white"
               >
-                <div className="w-10 h-10 rounded-lg bg-primary-500/10 flex items-center justify-center flex-shrink-0">
-                  <GraduationCap className="w-5 h-5 text-primary-400" />
+                <div className="w-10 h-10 rounded-lg bg-primary-50 border border-primary-200 flex items-center justify-center flex-shrink-0">
+                  <GraduationCap className="w-5 h-5 text-primary-600" />
                 </div>
                 <div>
-                  <h3 className="text-sm font-bold text-white">{edu.degree}</h3>
-                  <p className="text-xs text-surface-400 mt-1">{edu.institution}</p>
+                  <h3 className="text-sm font-bold text-surface-900">{edu.degree}</h3>
+                  <p className="text-xs text-surface-600 mt-1">{edu.institution}</p>
                   <p className="text-xs text-surface-500 mt-0.5">{edu.year}</p>
                 </div>
               </motion.div>
