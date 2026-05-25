@@ -200,7 +200,7 @@ export default function Experience() {
   const [selected, setSelected] = useState(null)
 
   return (
-    <section id="experience" className="relative py-16 lg:py-24">
+    <section id="experience" className="relative py-14 lg:py-18">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div
           initial="hidden"
@@ -258,11 +258,28 @@ export default function Experience() {
                 {/* Wins grid */}
                 {t.wins.length > 0 && (
                   <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-4">
-                    {t.wins.map((w) => (
-                      <div key={w.desc} className="p-3 rounded-xl bg-surface-50 border border-surface-100">
-                        <div className="text-xl font-bold" style={{ color: t.color }}>{w.metric}</div>
+                    {t.wins.map((w, wi) => (
+                      <motion.div
+                        key={w.desc}
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: wi * 0.1, type: 'spring', stiffness: 200 }}
+                        whileHover={{ scale: 1.05, y: -2 }}
+                        className="p-3 rounded-xl bg-surface-50 border border-surface-100"
+                      >
+                        <motion.div
+                          className="text-xl font-bold"
+                          style={{ color: t.color }}
+                          initial={{ opacity: 0, y: 10 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: 0.2 + wi * 0.1, duration: 0.5 }}
+                        >
+                          {w.metric}
+                        </motion.div>
                         <p className="text-xs text-surface-700 mt-1 leading-relaxed">{w.desc}</p>
-                      </div>
+                      </motion.div>
                     ))}
                   </div>
                 )}

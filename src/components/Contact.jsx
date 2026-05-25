@@ -1,7 +1,9 @@
 import { motion } from 'framer-motion'
 import { useState } from 'react'
-import { Mail, Linkedin, Github, Download, Calendar, ArrowRight } from 'lucide-react'
+import { Calendar, ArrowRight } from 'lucide-react'
+import { PiEnvelopeDuotone, PiLinkedinLogoDuotone, PiGithubLogoDuotone, PiFileArrowDownDuotone } from 'react-icons/pi'
 import DiscoveryForm from './DiscoveryForm'
+import AnimatedIcon3D from './AnimatedIcon3D'
 
 const fadeUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }
 
@@ -9,7 +11,7 @@ export default function Contact() {
   const [showForm, setShowForm] = useState(false)
   return (
     <>
-    <section id="contact" className="relative py-24 lg:py-32 bg-primary-50/30">
+    <section id="contact" className="relative py-16 lg:py-20 bg-primary-50/30">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div
           initial="hidden"
@@ -20,7 +22,11 @@ export default function Contact() {
         >
           <motion.div variants={fadeUp} transition={{ duration: 0.5 }}>
             <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-green-50 border border-green-200 rounded-full mb-8">
-              <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+              <motion.span
+                className="w-2 h-2 bg-green-500 rounded-full"
+                animate={{ scale: [1, 1.4, 1], opacity: [1, 0.6, 1] }}
+                transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+              />
               <span className="text-sm text-green-700 font-medium">Accepting new clients for Q3 2026</span>
             </div>
           </motion.div>
@@ -68,22 +74,30 @@ export default function Contact() {
 
           <motion.div variants={fadeUp} transition={{ duration: 0.5 }} className="flex flex-wrap gap-3 mb-12">
             {[
-              { icon: Mail, label: 'Email', href: 'mailto:Rahul.g2510@outlook.com' },
-              { icon: Linkedin, label: 'LinkedIn', href: 'https://www.linkedin.com/in/goelrahul25' },
-              { icon: Github, label: 'GitHub', href: 'https://github.com/rahgoel2510' },
-              { icon: Download, label: 'Resume', href: '/assets/RahulGoel_Resume.pdf' },
-            ].map((l) => (
-              <a
+              { icon: PiEnvelopeDuotone, label: 'Email', href: 'mailto:Rahul.g2510@outlook.com', color: '#dc2626', animation: 'pulse' },
+              { icon: PiLinkedinLogoDuotone, label: 'LinkedIn', href: 'https://www.linkedin.com/in/goelrahul25', color: '#0077b5', animation: 'float' },
+              { icon: PiGithubLogoDuotone, label: 'GitHub', href: 'https://github.com/rahgoel2510', color: '#1f2937', animation: 'tilt' },
+              { icon: PiFileArrowDownDuotone, label: 'Resume', href: '/assets/RahulGoel_Resume.pdf', color: '#059669', animation: 'bounce' },
+            ].map((l, i) => (
+              <motion.a
                 key={l.label}
                 href={l.href}
                 target={l.href.startsWith('http') ? '_blank' : undefined}
                 rel={l.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                 download={l.label === 'Resume' ? true : undefined}
-                className="inline-flex items-center gap-2 px-5 py-3 border border-surface-300 text-surface-700 font-medium rounded-xl hover:border-primary-300 hover:text-primary-700 hover:bg-white transition-colors text-sm"
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, duration: 0.4 }}
+                whileHover={{ y: -3, scale: 1.03, boxShadow: '0 8px 25px -5px rgba(99,102,241,0.15)' }}
+                whileTap={{ scale: 0.97 }}
+                className="inline-flex items-center gap-3 px-5 py-3 border border-surface-300 text-surface-700 font-medium rounded-xl hover:border-primary-300 hover:text-primary-700 hover:bg-white transition-colors text-sm"
               >
-                <l.icon className="w-4 h-4" />
+                <AnimatedIcon3D color={l.color} size="sm" animation={l.animation} delay={i * 0.2}>
+                  <l.icon className="w-full h-full" />
+                </AnimatedIcon3D>
                 {l.label}
-              </a>
+              </motion.a>
             ))}
           </motion.div>
 

@@ -1,11 +1,8 @@
 # Robots.txt for goelrah.github.io
-# Allow all crawlers to index all content
 
 User-agent: *
 Allow: /
+Disallow: /assets/docs/
 
-# Sitemap location
+# Sitemap
 Sitemap: https://goelrah.github.io/sitemap.xml
-
-# Crawl-delay (optional, be nice to servers)
-Crawl-delay: 1

@@ -62,7 +62,7 @@ const caseStudies = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="relative py-24 lg:py-32">
+    <section id="projects" className="relative py-16 lg:py-20">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div
           initial="hidden"
@@ -90,17 +90,24 @@ export default function Projects() {
                 variants={fadeUp}
                 transition={{ duration: 0.5 }}
                 whileHover={{ y: -4, transition: { duration: 0.2 } }}
-                className="p-7 rounded-2xl border border-surface-200 bg-white hover:shadow-lg transition-all group border-l-4"
+                className="p-7 rounded-2xl border border-surface-200 bg-white hover:shadow-lg transition-all group border-l-4 relative overflow-hidden"
                 style={{ borderLeftColor: study.color }}
               >
-                <span className="text-[11px] font-mono tracking-wider uppercase font-semibold" style={{ color: study.color }}>
+                {/* Subtle animated gradient on hover */}
+                <motion.div
+                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                  style={{
+                    background: `linear-gradient(135deg, ${study.color}05, transparent 60%)`,
+                  }}
+                />
+                <span className="text-[11px] font-mono tracking-wider uppercase font-semibold relative" style={{ color: study.color }}>
                   {study.category}
                 </span>
-                <h3 className="text-base font-bold text-surface-900 mt-2 mb-5 group-hover:text-primary-700 transition-colors">
+                <h3 className="text-base font-bold text-surface-900 mt-2 mb-5 group-hover:text-primary-700 transition-colors relative">
                   {study.title}
                 </h3>
 
-                <div className="space-y-4 mb-5">
+                <div className="space-y-4 mb-5 relative">
                   <div>
                     <h4 className="text-[11px] font-semibold text-surface-500 uppercase tracking-wider mb-1">The Problem</h4>
                     <p className="text-sm text-surface-600 leading-relaxed">{study.challenge}</p>
@@ -115,11 +122,15 @@ export default function Projects() {
                   </div>
                 </div>
 
-                <div className="flex flex-wrap gap-2 pt-4 border-t border-surface-100">
-                  {study.tech.map((t) => (
-                    <span key={t} className="text-[11px] px-2.5 py-1 rounded-md bg-surface-100 text-surface-600 border border-surface-200 font-medium">
+                <div className="flex flex-wrap gap-2 pt-4 border-t border-surface-100 relative">
+                  {study.tech.map((t, i) => (
+                    <motion.span
+                      key={t}
+                      whileHover={{ scale: 1.08, y: -1 }}
+                      className="text-[11px] px-2.5 py-1 rounded-md bg-surface-100 text-surface-600 border border-surface-200 font-medium cursor-default hover:border-primary-300 hover:text-primary-700 transition-colors"
+                    >
                       {t}
-                    </span>
+                    </motion.span>
                   ))}
                 </div>
               </motion.div>

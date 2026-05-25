@@ -1,0 +1,16 @@
+{
+  "name": "Rahul Goel — Staff TPM & Technology Consultant",
+  "short_name": "Rahul Goel",
+  "description": "Staff TPM & Technology Consultant. GenAI, Cloud FinOps, AWS Solutions Architect. 20+ years at Amazon & Deloitte.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4f46e5",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

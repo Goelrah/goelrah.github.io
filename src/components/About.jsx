@@ -4,7 +4,7 @@ const fadeUp = { hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0 } }
 
 export default function About() {
   return (
-    <section id="about" className="relative py-16 lg:py-24 bg-surface-100/50">
+    <section id="about" className="relative py-14 lg:py-18 bg-surface-100/50">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <motion.div
           initial="hidden"
@@ -17,11 +17,24 @@ export default function About() {
           </motion.span>
 
           <motion.div variants={fadeUp} transition={{ duration: 0.6 }} className="flex items-center gap-6 mt-6 mb-10">
-            <img
-              src="/rahul-goel.jpg"
-              alt="Rahul Goel"
-              className="w-32 h-32 lg:w-60 lg:h-60 rounded-full object-cover object-[center_20%] border-4 border-white shadow-xl -mt-2 -ml-2"
-            />
+            <div className="relative">
+              {/* Animated ring around photo */}
+              <motion.div
+                className="absolute -inset-2 rounded-full border-2 border-primary-300/50"
+                animate={{ scale: [1, 1.05, 1], opacity: [0.5, 1, 0.5] }}
+                transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
+              />
+              <motion.div
+                className="absolute -inset-4 rounded-full border border-primary-200/30"
+                animate={{ scale: [1, 1.08, 1], opacity: [0.3, 0.6, 0.3], rotate: [0, 180, 360] }}
+                transition={{ duration: 8, repeat: Infinity, ease: 'linear' }}
+              />
+              <img
+                src="/rahul-goel.jpg"
+                alt="Rahul Goel"
+                className="w-32 h-32 lg:w-60 lg:h-60 rounded-full object-cover object-[center_20%] border-4 border-white shadow-xl relative z-10"
+              />
+            </div>
             <div>
               <h2 className="text-2xl lg:text-3xl font-bold text-surface-900 leading-tight mb-2">
                 Rahul Goel
@@ -58,11 +71,19 @@ export default function About() {
                   { name: 'Google Cloud GenAI Leader', org: 'Google, 2025' },
                   { name: 'PRINCE2 Practitioner', org: 'AXELOS, UK' },
                   { name: 'ITIL v3 Foundation', org: 'APMG International' },
-                ].map((c) => (
-                  <div key={c.name} className="flex items-center justify-between py-2.5 border-b border-surface-200 group hover:border-primary-300 transition-colors">
+                ].map((c, i) => (
+                  <motion.div
+                    key={c.name}
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.08, duration: 0.4 }}
+                    whileHover={{ x: 4, borderColor: '#6366f1' }}
+                    className="flex items-center justify-between py-2.5 border-b border-surface-200 group transition-all"
+                  >
                     <span className="text-sm text-surface-800 font-medium group-hover:text-primary-700 transition-colors">{c.name}</span>
                     <span className="text-xs text-surface-500 flex-shrink-0 ml-4">{c.org}</span>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
 
@@ -73,11 +94,19 @@ export default function About() {
                   { name: 'Best Performing Engineering Manager', org: 'Deloitte, FY2020 & FY2021' },
                   { name: 'Best Team Lead', org: 'RBS, 2011 & 2012' },
                   { name: 'Ovation Excellence Award', org: 'RBS, 2011' },
-                ].map((a) => (
-                  <div key={a.name} className="flex items-center justify-between py-2.5 border-b border-surface-200 group hover:border-primary-300 transition-colors">
+                ].map((a, i) => (
+                  <motion.div
+                    key={a.name}
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.08, duration: 0.4 }}
+                    whileHover={{ x: 4, borderColor: '#6366f1' }}
+                    className="flex items-center justify-between py-2.5 border-b border-surface-200 group transition-all"
+                  >
                     <span className="text-sm text-surface-800 font-medium group-hover:text-primary-700 transition-colors">{a.name}</span>
                     <span className="text-xs text-surface-500 flex-shrink-0 ml-4">{a.org}</span>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
             </motion.div>
